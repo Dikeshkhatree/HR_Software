@@ -74,13 +74,7 @@ if (isset($_SESSION['user'])) {
         
           
             
-            <div href="#" class="nav_link submenu_item">
-              <span class="navlink_icon">
-              <i class="bx bx-trending-up"></i>
-              </span>
-              <span class="navlink">Performance</span>
-              <i class="bx bx-chevron-right arrow-left"></i>
-            </div>
+           
          
           
             <div href="#" class="nav_link submenu_item">
