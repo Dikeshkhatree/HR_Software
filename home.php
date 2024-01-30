@@ -72,11 +72,7 @@ if (isset($_SESSION['user'])) {
               <i class="bx bx-chevron-right arrow-left"></i>
             </div>
         
-          
-            
-           
-         
-          
+        
             <div href="#" class="nav_link submenu_item">
               <span class="navlink_icon">
               <i class="bx bx-dollar-circle"></i>
@@ -100,6 +96,22 @@ if (isset($_SESSION['user'])) {
               </span>
               <span class="navlink">Self-service</span>
               <i class="bx bx-chevron-right arrow-left"></i>
+            </div>
+
+            <div href="#" class="nav_link submenu_item">
+              <span class="navlink_icon">
+              <i class="bx bx-plus"></i> 
+              </span>
+              <span class="navlink">Add Employee</span>
+             <i class="bx bx-chevron-right arrow-left"></i>
+             </div>
+
+           <div href="#" class="nav_link submenu_item">
+            <span class="navlink_icon">
+            <i class="bx bx-list-ul"></i> 
+            </span>
+            <span class="navlink">Employee List</span>
+            <i class="bx bx-chevron-right arrow-left"></i>
             </div>
            
             <div href="#" class="nav_link submenu_item">
