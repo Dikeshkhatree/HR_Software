@@ -1,20 +1,20 @@
-<?php
+ <?php
 
 include("db_connect.php");
 
-if (isset($_POST['submit'])) {
-    $name = $_POST['username'];
-    $phone = $_POST['phone'];
-    $email = $_POST['email'];
+if (isset($_POST['register'])) {
+    $username = $_POST['username'];
     $password = $_POST['pass'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
 }
 
+$insert = "INSERT INTO register_employee(user_name, user_pass, email, phone) VALUES('$username', $password, '$email', $phone)";
+$result = $conn->query($insert); 
 
-$insert = "INSERT INTO admin(user_name, phone, email, user_pass) VALUES('$name', '$phone', '$email', '$password')";
-$result = $conn->query($insert);
-
-if (!$result) {
+if (!$result) { 
     echo "Invalid";
 } else {
-    header("Location: Home.php");
+    // header("Location: home.php");
+    echo "Success";
 }

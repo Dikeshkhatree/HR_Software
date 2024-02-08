@@ -1,4 +1,5 @@
 <?php
+
 // Start the session
 session_start();
 
@@ -19,7 +20,7 @@ if (isset($_SESSION['user'])) {
     <!-- Boxicons CSS -->
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     <title>Side Navigation Bar in HTML CSS</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/home.css"/>
   </head>
   <body>
   
@@ -143,5 +144,14 @@ if (isset($_SESSION['user'])) {
     </div>
     <!-- JavaScript -->
     <script src="script.js"></script>
+
+  <script>
+  const sidebar = document.querySelector('.sidebar');
+const sidebarOpen = document.getElementById('sidebarOpen');
+
+sidebarOpen.addEventListener('click', () => {
+  sidebar.classList.toggle('close');
+});
+</script>
   </body>
 </html>
