@@ -35,11 +35,14 @@ if (isset($_SESSION['user'])) {
         <input type="text" placeholder="Search" />
       </div>
       <div class="username"><?php echo $username; ?></div>
+      
       <div class="navbar_content">
-        <i class="bi bi-grid"></i>
-        
+
+        <div class="profile_section">
+     
+
+        <img src="images/koli.jpg" alt="" class="profile" style="width: 40px; height: 40px;" onclick="toggleMenu()"/>
         <i class='bx bx-bell' ></i>
-        <img src="images/koli.jpg" alt="" class="profile" />
       </div>
     </nav>
    
@@ -47,9 +50,8 @@ if (isset($_SESSION['user'])) {
     <nav class="sidebar">
       <div class="menu_content">
         <ul class="menu_items">
-          <div class="menu_title menu_dahsboard"></div>
-          <!-- duplicate or remove this li tag if you want to add or remove navlink with submenu -->
-          <!-- start -->
+     
+          
           <li class="item">
             <div href="#" class="nav_link submenu_item">
               <span class="navlink_icon">
@@ -59,10 +61,6 @@ if (isset($_SESSION['user'])) {
               <i class="bx bx-chevron-right arrow-left"></i>
             </div>
           </li>
-          <!-- end -->
-
-          <!-- duplicate this li tag if you want to add or remove  navlink with submenu -->
-          <!-- start --> 
           
       
             <div href="#" class="nav_link submenu_item">
@@ -99,14 +97,7 @@ if (isset($_SESSION['user'])) {
               <i class="bx bx-chevron-right arrow-left"></i>
             </div>
 
-            <div href="#" class="nav_link submenu_item">
-              <span class="navlink_icon">
-              <i class="bx bx-plus"></i> 
-              </span>
-              <span class="navlink">Add Employee</span>
-             <i class="bx bx-chevron-right arrow-left"></i>
-             </div>
-
+          
            <div href="#" class="nav_link submenu_item">
             <span class="navlink_icon">
             <i class="bx bx-list-ul"></i> 
@@ -137,6 +128,47 @@ if (isset($_SESSION['user'])) {
       </div>
     </nav>
    
+
+
+
+    <nav class="profilepopup">
+        
+  
+     <div class="sub-menu-wrap" id="subMenu">
+     <div class="sub-menu">
+     <div class="user-info">
+  <img src="images/koli.jpg">
+  <h2>virat123</h2>
+     </div>
+     <hr>
+     <a href="#" class="sub-menu-link"> 
+        <img src="profile.png">
+        <p>Edit profile</p>
+       
+    </a>
+    
+    <a href="#" class="sub-menu-link">
+        <img src="setting.png">
+        <p>Settings</p>
+       
+    </a>
+    
+    <a href="#" class="sub-menu-link">
+        <img src="help.png">
+        <p>Help & support</p>
+      
+    </a>
+    
+    <a href="#" class="sub-menu-link">
+        <img src="logout.png">
+        <p>Logout</p>
+       
+    </a>
+     </div>
+     </div>
+     </nav>
+
+    
         <!-- middle paragraph outside the main content area -->
         <div class="middle-paragraph">
             <p>This is homepage.</p>
@@ -146,6 +178,11 @@ if (isset($_SESSION['user'])) {
     <script src="script.js"></script>
 
   <script>
+  let subMenu = document.getElementById("subMenu");
+      function toggleMenu(){
+         subMenu.classList.toggle("open-menu");
+      }
+
   const sidebar = document.querySelector('.sidebar');
 const sidebarOpen = document.getElementById('sidebarOpen');
 
