@@ -2,19 +2,22 @@
 /* Import Google font - Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
-*{  
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    box-sizing: border-box;
+
+
+/* this will allow you to keep this table in right position */
+   .table-container {
+   margin-bottom: 40px;
+   background-color: #fff;
+   display:inline-block;
+   border-radius: 8px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+   margin-left: 292px;
+   margin-top: 150px;
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color: #f5f5f5;
+  
+    background-color: #f6f6f6;
     min-height: 100vh;
 }
 
@@ -22,13 +25,7 @@ body {
    margin-right: 2px;
 }
 
-.table-container {
-   margin-bottom: 40px;
-   background-color: #fff;
-   padding: 5px 15px 15px 15px;
-   border-radius: 8px;
-   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+
 
 .TableInfo {
    font-size: 30px;
@@ -87,12 +84,29 @@ td, th {
    background-color: #464cf5;
    color: white;
    border: none;
-   margin-left: 900px; /* Adjusted margin */
+   margin-left: 1290px; /* Adjusted margin */
    cursor: pointer;
+
 }
 
 .employeeAdd:hover {
    background-color: rgb(96, 85, 247);
+}
+
+
+  
+.action-column .create {
+   text-decoration: none;
+   color: white;
+   font-weight: 600;
+   margin-right: 25px;
+   border-radius: 7px;
+   background-color: #4c71f5;
+   padding: 4px 7px 4px 7px;
+}
+
+.action-column .create:hover {
+   background-color:#6a8bf7;
 }
 
 .action-column .edit {

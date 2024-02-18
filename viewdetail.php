@@ -1,17 +1,19 @@
-
+<?php
+include('home.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Document</title>
-   <link rel="stylesheet" href="css/viewtable.css"/>
- 
+   <link rel="stylesheet" href="css/viewdetail.css"/>
+   
 </head>
 <body>
    <div class="main-container">
    <div class="table-container">
-      <p class="TableInfo">Employee List</p>
+      <p class="TableInfo">Employee Details</p>
       <div class="table-div">
     
     <table>
@@ -56,6 +58,8 @@
                     <td class='action-column'>
                   
                     <!-- $employeeID is a PHP variable holding the value of the id parameter. -->
+
+                    <a class='create' href='signuppage.php'>Create</a>
                     <a class='edit' href='update_detail.php?id=$employeeID'>Edit</a>
                     <a class='delete' href='deleteemp_detail.php?id=$employeeID'>Delete</a>
                   </td>
@@ -67,10 +71,11 @@
     </table>
     </div>
    </div>
+   </div>
    
          <div class="addComponent">
-            <a href="add_detail.php"><button class="employeeAdd" name="employeeadd">Add Employee</button></a>
+            <a href="add_detail.php"><button class="employeeAdd" name="employeeadd">Add Details</button></a>
          </div>
-</div>   
+ 
 </body>
 </html>

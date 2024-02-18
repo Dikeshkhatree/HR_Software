@@ -165,7 +165,7 @@ body.dark {
 .sidebar .nav_link {
   display: flex;
   align-items: center;
-  width: 115%;
+  width: 125%;
   padding: 4px 15px;
   border-radius: 8px;
   text-decoration: none;

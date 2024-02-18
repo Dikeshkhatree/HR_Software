@@ -1,5 +1,4 @@
 <?php
-
 // Start the session
 session_start();
 
@@ -28,13 +27,13 @@ if (isset($_SESSION['user'])) {
     <nav class="navbar">
       <div class="logo_item">
         <i class="bx bx-menu" id="sidebarOpen"></i>
-        <img src="images/logo.png" alt=""></i>HR Software
+        <img src="images/logo.png" alt="">HR Software
       </div>
       
       <div class="search_bar">
         <input type="text" placeholder="Search" />
       </div>
-      <div class="username"><?php echo $username; ?></div>
+      <div class="username"></div>
       
       <div class="navbar_content">
 
@@ -43,6 +42,7 @@ if (isset($_SESSION['user'])) {
 
         <img src="images/koli.jpg" alt="" class="profile" style="width: 40px; height: 40px;" onclick="toggleMenu()"/>
         <i class='bx bx-bell' ></i>
+      </div>
       </div>
     </nav>
    
@@ -53,16 +53,16 @@ if (isset($_SESSION['user'])) {
      
           
           <li class="item">
-            <div href="#" class="nav_link submenu_item">
+            <a href="home.php" class="nav_link submenu_item">
               <span class="navlink_icon">
                 <i class="bx bx-home-alt"></i>
               </span>
               <span class="navlink">Home</span>
               <i class="bx bx-chevron-right arrow-left"></i>
-            </div>
+            </a>
           </li>
           
-      
+  
             <div href="#" class="nav_link submenu_item">
               <span class="navlink_icon">
               <i class="bx bx-calendar"></i>
@@ -98,14 +98,23 @@ if (isset($_SESSION['user'])) {
             </div>
 
           
-           <div href="#" class="nav_link submenu_item">
-            <span class="navlink_icon">
-            <i class="bx bx-list-ul"></i> 
-            </span>
-            <span class="navlink">Employee List</span>
-            <i class="bx bx-chevron-right arrow-left"></i>
-            </div>
+             <a href="viewdetail.php" class="nav_link submenu_item">
+             <span class="navlink_icon">
+             <i class="bx bx-list-ul"></i> 
+             </span> 
+             <span class="navlink">Emp_Details</span>
+             <i class="bx bx-chevron-right arrow-left"></i>
+             </a>
            
+             <div href="#" class="nav_link submenu_item">
+              <span class="navlink_icon">
+              <i class="bx bx-check"></i>
+              </span>
+              <span class="navlink">Employee_List</span>
+              <i class="bx bx-chevron-right arrow-left"></i>
+            </div>
+
+
             <div href="#" class="nav_link submenu_item">
               <span class="navlink_icon">
             <i class="bx bx-bar-chart"></i>
@@ -122,58 +131,42 @@ if (isset($_SESSION['user'])) {
               <i class="bx bx-chevron-right arrow-left"></i>
             </div>
             
-           <a href="logout.php">logout</a>
+        
            
         </div>
       </div>
     </nav>
    
-
-
-
     <nav class="profilepopup">
         
-  
      <div class="sub-menu-wrap" id="subMenu">
      <div class="sub-menu">
      <div class="user-info">
   <img src="images/koli.jpg">
-  <h2>virat123</h2>
+  <h3><?php echo $username; ?></h3>
      </div>
      <hr>
      <a href="#" class="sub-menu-link"> 
-        <img src="profile.png">
+        <img src="images/profile.png">
         <p>Edit profile</p>
        
     </a>
     
     <a href="#" class="sub-menu-link">
-        <img src="setting.png">
+        <img src="images/setting.png">
         <p>Settings</p>
        
     </a>
     
-    <a href="#" class="sub-menu-link">
-        <img src="help.png">
-        <p>Help & support</p>
-      
-    </a>
-    
-    <a href="#" class="sub-menu-link">
-        <img src="logout.png">
+    <a href="logout.php" class="sub-menu-link">
+        <img src="images/logout.png">
         <p>Logout</p>
        
     </a>
      </div>
      </div>
      </nav>
-
     
-        <!-- middle paragraph outside the main content area -->
-        <div class="middle-paragraph">
-            <p>This is homepage.</p>
-        </div>
-    </div>
     <!-- JavaScript -->
     <script src="script.js"></script>
 

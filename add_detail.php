@@ -11,7 +11,7 @@
 
     <style>
         .bg-light-white {
-            background-color: #f8f8f8; /* Adjust the color code as needed */
+            background-color: #f6f6f6; /* Adjust the color code as needed */
         }
 
         .custom-image {
@@ -28,9 +28,10 @@
             margin-bottom: -4px;
             width: 100%;
             font-size: 1rem;
+           
         }
 
-        
+       
     </style>
 
     <title>Add employee Form</title>
@@ -45,14 +46,14 @@
                         <div class="row g-0">
                             <div class="col-xl-6 d-none d-xl-block">
 
-                                <img src="images/em_pic.png" alt="employeepic" class="custom-image img-fluid" />
+                                <img src="images/add_details.png" alt="employeepic" class="custom-image img-fluid" />
 
                             </div>
                             <div class="col-xl-6">
                                 <div class="card-body p-md-5 text-black">
 
                                  <form action="insert_detail.php" method="post" class="row border border-0 border-dark mx-0 my-0">
-                                        <h3 class="mb-5 text-uppercase">Add Employee</h3>
+                                        <h3 class="mb-5 text-uppercase">Add Employee Details</h3>
 
                                         <div class="row">
                                             <div class="col-md-6 mb-4">
@@ -86,6 +87,7 @@
                                                         style="margin-left: 7px;">Employee ID</label>
                                                 </div>
                                             </div>
+
                                             <div class="col-md-6 mb-4">
 
                                                 <div class="form-floating mb-1">
@@ -98,6 +100,33 @@
                                             </div>
                                         </div>
 
+
+                                        <div class="row">
+                                      <div class="col-md-6 mb-4">
+                                    <div class="form-floating mb-1">
+                            <input type="date" id="floatingInputJoiningDate"
+                              class="form-control form-control-lg input-field"
+                             name="joining_date" autocomplete="" required/>
+                              <label for="floatingInputJoiningDate"
+                              style="margin-left: 7px;">Date of Joining</label>
+                                 </div>
+                                  </div>
+
+                                <div class="col-md-6 mb-4">
+                                 <div class="form-floating mb-1">
+            <select id="floatingSelectRole" class="form-select form-select-lg input-field" name="role" required>
+                <option value="">Select Role</option>
+                <option value="AI/ML engineer">AI/ML Engineer</option>
+                <option value="Graphics designer">Graphics Designer</option>
+                <option value="Web developer">Web Developer</option>
+                <option value="Software developer">Software Developer</option>
+            </select>
+            <label for="floatingSelectRole" style="margin-left: 7px;">Role</label>
+        </div>
+    </div>
+</div>
+<div class="col-md-11 mb-4">
+
                                         <div class="form-floating mb-1">
                                             <input type="text" id="floatingInputAddress"
                                                 class="form-control form-control-lg input-field" placeholder="Address"
@@ -106,6 +135,7 @@
                                                 style="margin-left: 7px;">Address</label>
                                         </div>
 
+  
                                         <div class="d-flex justify-content-center pt-4">
                                             <button type="submit" class="btn btn-primary btn-lg ms-1" name="submit">Submit
                                                 form</button>
