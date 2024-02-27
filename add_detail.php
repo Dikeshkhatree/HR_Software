@@ -31,10 +31,14 @@
 
            
         }
-.form-select{
-
-    padding-top: 1.625rem;
+        .form-floating > .form-select {
+    padding-top: 1.4rem; /* Adjust as needed */
+    
 }
+.large-width {
+    width: 105%; /* Adjust as needed */
+}
+
        
     </style>
 
@@ -112,32 +116,31 @@
                               class="form-control form-control-lg input-field"
                              name="joining_date" autocomplete="" required/>
                               <label for="floatingInputJoiningDate"
-                              style="margin-left: 7px;">Date of Joining</label>
+                              style="margin-left: 2px;">Date of Joining</label>
                                  </div>
                                   </div>
 
-                                <div class="col-md-6 mb-4">
-                                 <div class="form-floating mb-1">
-            <select id="floatingSelectRole" class="form-select form-select-lg input-field" name="role" required>
-                <option value="">Select Role</option>
-                <option value="AI/ML engineer">AI/ML Engineer</option>
-                <option value="Graphics designer">Graphics Designer</option>
-                <option value="Web developer">Web Developer</option>
-                <option value="Software developer">Software Developer</option>
-            </select>
-            <label for="floatingSelectRole" style="margin-left: 7px;">Role</label>
-        </div>
+                                  <div class="col-md-6 mb-4">
+    <div class="form-floating mb-1">
+        <select id="floatingSelectRole" class="form-select form-select-lg input-field" name="role" required>
+            <option value="" disabled>Select Role</option>
+            <option value="AI/ML engineer">AI/ML Engineer</option>
+            <option value="Graphics designer">Graphics Designer</option>
+            <option value="Web developer">Web Developer</option>
+            <option value="Software developer">Software Developer</option>
+        </select>
+        <label for="floatingSelectRole" style="margin-left: 7px;">Role</label>
     </div>
+</div>
+
 </div>
 <div class="col-md-11 mb-4">
 
-                                        <div class="form-floating mb-1">
-                                            <input type="text" id="floatingInputAddress"
-                                                class="form-control form-control-lg input-field" placeholder="Address"
-                                                name="address" autocomplete="" required>
-                                            <label for="floatingInputAddress"
-                                                style="margin-left: 7px;">Address</label>
-                                        </div>
+<div class="form-floating mb-1">
+    <input type="text" id="floatingInputAddress" class="form-control form-control-lg input-field large-width" placeholder="Address" name="address" autocomplete="" required>
+    <label for="floatingInputAddress" style="margin-left: 7px;">Address</label>
+</div>
+
 
   
                                         <div class="d-flex justify-content-center pt-4">
