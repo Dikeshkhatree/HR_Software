@@ -1,7 +1,7 @@
 <?php
 $host = "localhost:3306";
 $user = "root";
-$password = 'payment@123';
+$password = '';
 $db_name = "hr";
 
 // Attempt to create a connection using the procedural style

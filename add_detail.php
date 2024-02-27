@@ -28,9 +28,13 @@
             margin-bottom: -4px;
             width: 100%;
             font-size: 1rem;
+
            
         }
+.form-select{
 
+    padding-top: 1.625rem;
+}
        
     </style>
 
