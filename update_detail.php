@@ -28,7 +28,7 @@ if (isset($_POST['submit'])) {
         die("Update failed: " . mysqli_error($conn));
     }
 }
-//from below if form is not submitted then it executes get method and get value of id from url and fetch data of that row and after that it executes updatequery & update data if form submitted & finally redirect to viewdetail.php
+//from above if form is not submitted then it executes get method and get value of id from url and fetch data of that row and after that it executes updatequery & update data if form submitted & finally redirect to viewdetail.php
 // Check if the 'id' parameter is set in the URL
 if (isset($_GET['id'])) {
 // Retrieve the value of the 'id' parameter from URL. i.e http://localhost/HR_Software/update_detail.php?id=36
@@ -44,7 +44,6 @@ $result = mysqli_query($conn, $query);
 $row = mysqli_fetch_assoc($result);
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -75,9 +74,7 @@ $row = mysqli_fetch_assoc($result);
             margin-bottom: -4px;
             width: 100%;
             font-size: 1rem;
-        }
-
-        
+        }    
     </style>
 
     <title>Update employee Form</title>
@@ -97,7 +94,6 @@ $row = mysqli_fetch_assoc($result);
                             </div>
                             <div class="col-xl-6">
                                 <div class="card-body p-md-5 text-black">
-
 
                                  <form action="" method="post" class="row border border-0 border-dark mx-0 my-0">
                                         <h3 class="mb-5 text-uppercase">Update Employee</h3>
@@ -156,8 +152,7 @@ $row = mysqli_fetch_assoc($result);
                                         <div class="d-flex justify-content-center pt-4">
                                             <button type="submit" class="btn btn-primary btn-lg ms-1" name="submit">Update
                                                 form</button>
-                                        </div>
-                                        
+                                        </div>                                     
                                     </form>
                                 </div>
                             </div>
