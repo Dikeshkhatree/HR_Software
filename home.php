@@ -5,6 +5,7 @@ session_start();
 // Check if the username is set in the session
 if (isset($_SESSION['user'])) {
     $username = $_SESSION['user']; 
+    
 } else {
     // Redirect to the login page if the username is not set in the session
     header("Location: loginpage.php");
@@ -18,7 +19,7 @@ if (isset($_SESSION['user'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Boxicons CSS -->
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-    <title>Side Navigation Bar in HTML CSS</title>
+    <title>Homepage</title>
     <link rel="stylesheet" href="css/home.css"/>
   </head>
   <body>
