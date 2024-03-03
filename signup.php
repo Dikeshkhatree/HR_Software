@@ -3,13 +3,14 @@
 include("db_connect.php");
 
 if (isset($_POST['register'])) {
+    $employeeID = $_POST['employeeid'];
     $username = $_POST['username'];
     $password = $_POST['pass'];
     $email = $_POST['email'];
-    $phone = $_POST['phone'];
+   
 }
 
-$insert = "INSERT INTO register_employee(user_name, user_pass, email, phone) VALUES('$username', $password, '$email', $phone)";
+$insert = "INSERT INTO register_employee(employee_id, user_name, user_pass, email) VALUES ($employeeID, '$username', '$password', '$email')";
 $result = $conn->query($insert); 
 
 if (!$result) { 
