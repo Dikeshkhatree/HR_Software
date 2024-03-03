@@ -1,6 +1,5 @@
 <?php
 include('home.php');
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -79,6 +78,11 @@ h2 {
         <div class="content">
             <h2>Sign Up</h2>
             <form action="signup.php" method="post">
+
+            <div class="input-group">
+                    <input type="number" placeholder="Employee ID" name="employeeid" required>
+                </div>
+
                 <div class="input-group">
                     <input type="text" placeholder="Username" name="username" required>
                 </div>
@@ -86,13 +90,10 @@ h2 {
                     <input type="password" placeholder="Password" name="pass" required>
                 </div>
                 <div class="input-group">
-                    <input type="email" placeholder="Email address" name="email" required>
+                    <input type="email" placeholder="Email Address" name="email" required>
                 </div>
-                <div class="input-group">
-    <input type="tel" placeholder="Phone Number" name="phone" pattern="[0-9]{10}" title="Please enter 10-digit phone number" required>
-    </div>
-
-                <div class="input-group">
+              
+                    <div class="input-group">
                     <button type="submit" class="text" name="register">CREATE ACCOUNT</button>
                 </div>
                 <div class="text-group">
