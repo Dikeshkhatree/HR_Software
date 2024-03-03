@@ -15,10 +15,10 @@ if (isset($_POST['submit'])) {
     $updateQuery = "UPDATE employee_detail 
                     SET full_name='$fullName', username='$username', email='$email', address='$address'
                     WHERE employee_id=$employeeID";
-
+       
 // Execute the update query
     $result = mysqli_query($conn, $updateQuery);
-
+       
     // Check for success or failure
     if ($result) {
         // Use PHP's header for redirection
