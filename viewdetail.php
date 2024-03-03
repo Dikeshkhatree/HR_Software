@@ -41,7 +41,7 @@ include('home.php');
           // Iterate through each row in the result set & loop continues until there are no more rows left 
                 while ($row = $result->fetch_assoc()) {
           // Extract data from the database and assign it to variables given below.
-                    $fullName=$row['full_name'];
+                    $fullName=$row['full_name']; // this 'full_name' is database name & other all
                     $username=$row['username']; 
                     $employeeID=$row['employee_id'];  
                     $email=$row['email'];  
@@ -60,7 +60,7 @@ include('home.php');
                     <!-- $employeeID is a PHP variable holding the value of the id parameter. -->
 
                     <a class='create' href='signuppage.php'>Create</a>
-                    <a class='edit' href='update_detail.php?id=$employeeID'>Edit</a>
+                    <a class='edit' href='update_detail.php?id=$employeeID'>Edit</a>  
                     <a class='delete' href='deleteemp_detail.php?id=$employeeID'>Delete</a>
                   </td>
                   </tr>";
