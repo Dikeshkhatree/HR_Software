@@ -1,20 +1,17 @@
 
 <?php
-
 // Start the session
 session_start();
 
-// Check if the username is set in the session
+// Check if the user_name is set in the session
 if (isset($_SESSION['user'])) {
-    $username = $_SESSION['user']; 
+  
 } else {
-    // Redirect to the login page if the username is not set in the session
-    header("Location: loginpage.php");
-    exit();
+  // Redirect to the login page if the user_name is not set in the session
+  header("Location: loginpage.php");
+  exit();
 }
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -68,34 +65,34 @@ if (isset($_SESSION['user'])) {
           </li>
           
   
-            <div href="#" class="nav_link submenu_item">
+            <a href="attendance.php" class="nav_link submenu_item">
               <span class="navlink_icon">
               <i class="bx bx-calendar"></i>
               </span>
               <span class="navlink">Attendance</span>
               <i class="bx bx-chevron-right arrow-left"></i>
-            </div>
+              </a>
         
         
 
-            <div href="#" class="nav_link submenu_item">
+            <a href="#" class="nav_link submenu_item">
               <span class="navlink_icon">
               <i class="bx bx-calendar-minus"></i>
               </span>
               <span class="navlink">Apply Leave</span>
               <i class="bx bx-chevron-right arrow-left"></i>
-            </div>
+              </a>
 
           
           
            
-            <div href="#" class="nav_link submenu_item">
+            <a href="#" class="nav_link submenu_item">
               <span class="navlink_icon">
             <i class="bx bx-bar-chart"></i>
             </span>
               <span class="navlink">Overview</span>
               <i class="bx bx-chevron-right arrow-left"></i>
-            </div>
+              </a>
        
         </div>
       </div>
@@ -107,25 +104,22 @@ if (isset($_SESSION['user'])) {
      <div class="sub-menu">
      <div class="user-info">
   <img src="images/koli.jpg">
-  <h3><?php echo $username; ?></h3>
+  <h3><?php echo $_SESSION['user']; ?></h3>
      </div>
      <hr>
-     <a href="#" class="sub-menu-link"> 
+     <a href="change_emp_pass.php" class="sub-menu-link"> 
         <img src="images/profile.png">
-        <p>Edit profile</p>
-       
+        <p>Change Password</p>    
     </a>
     
     <a href="#" class="sub-menu-link">
         <img src="images/setting.png">
-        <p>Settings</p>
-       
+        <p>Settings</p>     
     </a>
     
     <a href="logout.php" class="sub-menu-link">
         <img src="images/logout.png">
-        <p>Logout</p>
-       
+        <p>Logout</p>    
     </a>
      </div>
      </div>
