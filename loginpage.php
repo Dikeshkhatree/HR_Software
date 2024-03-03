@@ -94,11 +94,10 @@
                             <div class="form-floating mb-1">
 
 							<input type="text" class="form-control input-field" id="floatingInput"
-                                    placeholder="Username" name="username" autocomplete="" required>
+                                    placeholder="Username or Email Address" name="username" autocomplete="" required>
 
-                                <label for="floatingInput" style="margin-left: 7px;">Username</label>
-                                
-                                    
+                                <label for="floatingInput" style="margin-left: 7px;">Username or Email </label>
+                        
                             </div>
 
                             <div class="form-floating mb-1">
