@@ -5,15 +5,23 @@ include("db_connect.php");
 // Check if the form is submitted
 if (isset($_POST['submit'])) {
     // Retrieve form data
-    $fullName = $_POST['fullnam'];
-    $username = $_POST['username'];
+    $username = $_POST['user_nam'];
+    $password = $_POST['pass'];
     $employeeID = $_POST['empid'];
     $email = $_POST['email'];
+    $join_date = $_POST['join_date']; // Assuming the format is 'MM/DD/YYYY'
+    $role = $_POST['role'];
     $address = $_POST['address'];
 
+// Convert the date format from 'MM/DD/YYYY' to 'YYYY-MM-DD'
+//strtotime function converts date or time string written in natural/human language into standard date format.
+// "2022-04-03" is a string in programming terminology.
+
+    // $join_date = date('Y-m-d', strtotime($join_date));
+
     // Construct a SQL query to insert data into the 'employee_details' table
-    $insertQuery = "INSERT INTO employee_detail (full_name, username, employee_id, email, address) 
-                    VALUES ('$fullName', '$username', $employeeID, '$email', '$address')";
+    $insertQuery = "INSERT INTO add_detail(username, user_pass, employee_id, email, joining_date, role, address) 
+                    VALUES ('$username', '$password', $employeeID, '$email', '$join_date', '$role', '$address')";
 
    
     // Execute the SQL query
