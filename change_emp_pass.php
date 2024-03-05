@@ -16,13 +16,13 @@ if (isset($_POST['change_password'])) {
     // Check if new password matches confirm password
     if ($new_password == $confirm_password) {
         // Fetch the user's current password from the database
-        $select = "SELECT * FROM register_employee WHERE user_pass = '$current_password'";
+        $select = "SELECT * FROM add_detail WHERE user_pass = '$current_password'";
         $result = mysqli_query($conn, $select);
 
         // Check if the current password matches any user's password in the database
         if (mysqli_num_rows($result) > 0) {
             // Update the user's password
-            $update = "UPDATE register_employee SET user_pass = '$new_password' WHERE user_pass = '$current_password'";
+            $update = "UPDATE add_detail SET user_pass = '$new_password' WHERE user_pass = '$current_password'";
             mysqli_query($conn, $update);
             
             $green_message = "Password Changed Successfully !"; // $message is the variable here
