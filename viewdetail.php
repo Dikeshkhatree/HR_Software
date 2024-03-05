@@ -19,10 +19,11 @@ include('home.php');
     <table>
         <thead>
 
-                <th>Full Name</th>
+              <th>Joining Date</th>
                 <th>Username</th>
                 <th>Employee ID</th>
                 <th>Email</th>
+                <th>Role</th>
                 <th>Address</th>
                 <th>Action</th>
            
@@ -33,7 +34,7 @@ include('home.php');
             include("db_connect.php");
 
        // SQL query to retrieve data from the 'employee_detail' table
-            $selectQuery = "SELECT * FROM employee_detail";
+            $selectQuery = "SELECT * FROM add_detail";
 
             // Execute the SQL query
             $result = $conn->query($selectQuery);
@@ -41,25 +42,26 @@ include('home.php');
           // Iterate through each row in the result set & loop continues until there are no more rows left 
                 while ($row = $result->fetch_assoc()) {
           // Extract data from the database and assign it to variables given below.
-                    $fullName=$row['full_name']; // this 'full_name' is database name & other all
-                    $username=$row['username']; 
-                    $employeeID=$row['employee_id'];  
-                    $email=$row['email'];  
-                    $address=$row['address'];                     
+                    $username=$row['username'];  // this 'username' is database name & other all
+                    $employeeID = $row['employee_id'];
+                    $email = $row['email'];
+                    $join_date = $row['joining_date'];
+                    $role = $row['role'];
+                    $address = $row['address'];                 
             
                // output of HTML table row
                     echo "<tr>
-                    <td>".$fullName."</td>
-                    <td>".$username."</td>
+                    <td>".$join_date."</td>
+                    <td>".$username."</td>    
                     <td>".$employeeID."</td>
-                    <td>".$email."</td>
+                    <td>".$email."</td>     
+                    <td>".$role."</td>
                     <td>".$address."</td>
                                                        
                     <td class='action-column'>
                   
                     <!-- $employeeID is a PHP variable holding the value of the id parameter. -->
-
-                    <a class='create' href='signuppage.php'>Create</a>
+  
                     <a class='edit' href='update_detail.php?id=$employeeID'>Edit</a>  
                     <a class='delete' href='deleteemp_detail.php?id=$employeeID'>Delete</a>
                   </td>
@@ -74,7 +76,7 @@ include('home.php');
    </div>
    
          <div class="addComponent">
-            <a href="add_detail.php"><button class="employeeAdd" name="employeeadd">Add Details</button></a>
+            <a href="add_detail.php"><button class="employeeAdd" name="employeeadd">Add Employee</button></a>
          </div>
  
 </body>
