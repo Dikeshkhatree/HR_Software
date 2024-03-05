@@ -15,7 +15,7 @@ if (isset($_POST['submit'])) {
 $checkadmin = "SELECT * from admin WHERE (user_name='$username' OR email='$username') AND user_pass='$password'";
 
 // SQL query to check if the provided username and password exist in the 'register_employee' table
-$checkemployee = "SELECT * from register_employee WHERE (user_name='$username' OR email='$username') AND user_pass='$password'";
+$checkemployee = "SELECT * from add_detail WHERE (username='$username' OR email='$username') AND user_pass='$password'";
 
 // Execute the SQL query
 $resultadmin = $conn->query($checkadmin);
@@ -40,7 +40,7 @@ if ($resultadmin->num_rows > 0) {
 $database_fetch = $resultemployee->fetch_assoc();
 
 // $_SESSION['user'] is a session variable named "user" which holds value of 'user_name' from database
- $_SESSION['user'] = $database_fetch ['user_name']; // this 'user_name' is database field name
+ $_SESSION['user'] = $database_fetch ['username']; // this 'user_name' is database field name
  
  // Redirect to the dashboard.php page
  header("Location: dashboard.php");
