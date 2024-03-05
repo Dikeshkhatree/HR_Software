@@ -14,11 +14,9 @@
   --grey-color-light: #aaa;
 }
 body {
-  background-color: #e7f2fd;
+  background-color: #f6f6f6;
   height: 100vh;
- 
 }
-
 
 body.dark {
   background-color: #333;
