@@ -97,17 +97,8 @@ if (isset($_SESSION['user'])) {
               <span class="navlink">Self-service</span>
               <i class="bx bx-chevron-right arrow-left"></i>
               </a>
-
-          
-             <a href="viewdetail.php" class="nav_link submenu_item">
-             <span class="navlink_icon">
-             <i class="bx bx-list-ul"></i> 
-             </span> 
-             <span class="navlink">Emp_Details</span>
-             <i class="bx bx-chevron-right arrow-left"></i>
-             </a>
            
-             <a href="#" class="nav_link submenu_item">
+             <a href="viewdetail.php" class="nav_link submenu_item">
               <span class="navlink_icon">
               <i class="bx bx-check"></i>
               </span>
@@ -116,11 +107,11 @@ if (isset($_SESSION['user'])) {
               </a>
 
 
-            <a href="#" class="nav_link submenu_item">
+            <a href="add_schedule.php" class="nav_link submenu_item">
               <span class="navlink_icon">
-            <i class="bx bx-bar-chart"></i>
+              <i class="bx bx-calendar-plus"></i>
             </span>
-              <span class="navlink">Overview</span>
+              <span class="navlink">Add Schedule</span>
               <i class="bx bx-chevron-right arrow-left"></i>
               </a>
 
@@ -130,14 +121,12 @@ if (isset($_SESSION['user'])) {
               </span>
               <span class="navlink">Settings</span>
               <i class="bx bx-chevron-right arrow-left"></i>
-              </a>
-            
-        
-           
+              </a> 
         </div>
       </div>
     </nav>
    
+    <!-- for profile popup -->
     <nav class="profilepopup">
         
      <div class="sub-menu-wrap" id="subMenu">
