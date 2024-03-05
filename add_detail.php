@@ -15,7 +15,6 @@ include('home.php');
         .bg-light-white {
             background-color: #f6f6f6; /* Adjust the color code as needed */
         }
-
         .custom-image {
             width: 800px;
             height: 580px;
@@ -31,7 +30,6 @@ include('home.php');
             width: 100%;
             font-size: 1rem;
 
-           
         }
         .form-floating > .form-select {
     padding-top: 1.4rem; /* Adjust as needed */
