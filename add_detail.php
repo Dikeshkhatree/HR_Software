@@ -17,7 +17,7 @@ include('home.php');
         }
 
         .custom-image {
-            width: 1000px;
+            width: 800px;
             height: 580px;
             border-top-left-radius: .25rem;
             border-bottom-left-radius: .25rem;
@@ -40,7 +40,11 @@ include('home.php');
 .large-width {
     width: 105%; /* Adjust as needed */
 }
-
+.h-100 {
+    height: 20% !important;
+    margin-right: -13px;
+    margin-top: -7px;
+}
        
     </style>
 
@@ -51,7 +55,7 @@ include('home.php');
     <section class="h-100 bg-light-white">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col">
+                <div class="col-xl-12">
                     <div class="card card-registration my-4">
                         <div class="row g-0">
                             <div class="col-xl-6 d-none d-xl-block">
@@ -68,21 +72,21 @@ include('home.php');
                                         <div class="row">
                                             <div class="col-md-6 mb-4">
                                                 <div class="form-floating mb-1">
-                                                    <input type="text" id="floatingInputName"
+                                                 <input type="text" id="floatingInputUserName"
                                                         class="form-control form-control-lg input-field"
-                                                        placeholder="First name" name="fullnam" autocomplete="" required/>
-                                                    <label for="floatingInputName" style="margin-left: 7px;">Full
-                                                        Name</label>
+                                                        placeholder="User Name" name="user_nam" autocomplete="" required/>
+                                                    <label for="floatingInputUserName" style="margin-left: 7px;">Username
+                                                    </label>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6 mb-4">
                                                 <div class="form-floating mb-1">
-                                                    <input type="text" id="floatingInputusername"
+                                                    <input type="text" id="floatingInputpassword"
                                                         class="form-control form-control-lg input-field"
-                                                        placeholder="username" name="username" autocomplete="" required/>
-                                                    <label for="floatingInputusername"
-                                                        style="margin-left: 7px;">Username</label>
+                                                        placeholder="password" name="pass" autocomplete="" required/>
+                                                    <label for="floatingInputpassword"
+                                                        style="margin-left: 7px;">Password</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -116,7 +120,7 @@ include('home.php');
                                     <div class="form-floating mb-1">
                             <input type="date" id="floatingInputJoiningDate"
                               class="form-control form-control-lg input-field"
-                             name="joining_date" autocomplete="" required/>
+                             name="join_date" autocomplete="" required/>
                               <label for="floatingInputJoiningDate"
                               style="margin-left: 2px;">Date of Joining</label>
                                  </div>

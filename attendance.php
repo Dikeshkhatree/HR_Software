@@ -10,7 +10,7 @@ include('dashboard.php');
 <style>
   body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-color: #f6f6f6;
   }
   
   .attendance-container {
@@ -45,7 +45,7 @@ include('dashboard.php');
 
   .attendance-button {
     width: 100%;
-    padding: 15px;
+    padding: 11px;
     background-color: #007bff;
     color: #fff;
     border: none;
@@ -53,6 +53,7 @@ include('dashboard.php');
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease;
+    margin-top: 18px;
   }
   
   .attendance-button:hover {
@@ -63,10 +64,10 @@ include('dashboard.php');
 <body>
 <div class="attendance-container">
   <h2 class="attendance-heading">Attendance Form</h2>
-  <form id="attendance">
+  <form action="" method="post">
     <div>
       <label for="employee" class="attendance-label">Employee ID:</label>
-      <input type="text" id="employee" class="attendance-input" name="employee" required>
+      <input type="text" id="employee" class="attendance-input" name="employeeid" required>
     </div>
     <div>
       <label for="status" class="attendance-label">Status:</label>
@@ -75,8 +76,54 @@ include('dashboard.php');
         <option value="out">Time Out</option>
       </select>
     </div>
-    <button type="submit" class="attendance-button">Submit</button>
+    <button type="submit" class="attendance-button" name="submit">Submit</button>
   </form>
 </div>
 </body>
 </html>
+
+<?php
+// Include the database connection file
+include('db_connect.php');
+
+// Check if form is submitted
+if(isset($_POST['submit'])) {
+    // Retrieve form data
+    $employeeID = $_POST['employeeid'];
+    $status = $_POST['status'];
+
+     // Check if the employee ID exists in the add_detail table
+     $check_query = "SELECT * FROM add_detail WHERE employee_id = $employeeID";
+     $result = mysqli_query($conn, $check_query);
+
+     if(mysqli_num_rows($result) == 0) {
+      // Employee ID not found, display popup message
+      echo '<script>alert("Employee ID not found.");</script>';
+  } else {
+    // Get current date and time
+    $current_date = date("Y-m-d"); // Get current date
+    $current_timein = date("H:i:s"); // Get current time i.e hrs:min:sec
+    $current_timeout = date("H:i:s");
+
+    // Check if status is 'in' or 'out'
+    if($status == 'in') { //The value 'in' represent that the employee is currently "in" or present at work.
+
+        // Insert time in for the employee
+        $query = "INSERT INTO attendance (date, employee_id, time_in, status) VALUES ('$current_date', $employeeID, '$current_timein', '$attendance_status')";
+    }   elseif($status == 'out') {
+        // Update time out for the employee
+        $query = "UPDATE attendance SET time_out = '$current_timeout' WHERE employee_id = $employeeID AND date = '$current_date'";
+    }
+
+    // Execute the query
+    if(mysqli_query($conn, $query)) {
+        // JavaScript for showing success popup
+        echo '<script>alert("Attendance recorded successfully.");</script>';
+    } else {
+        // JavaScript for showing error popup
+        echo '<script>alert("Error recording attendance.");</script>';
+    }
+}
+}
+
+?>
