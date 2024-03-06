@@ -1,65 +1,82 @@
 <?php
 include('dashboard.php');
+
+// Include the database connection file
+include('db_connect.php');
+include('timezone.php');// include timezone to display localtime of kathmandu/Nepal
+
+// Check if form is submitted
+if(isset($_POST['submit'])) {
+    // Retrieve form data
+    $employeeID = $_POST['employeeid'];
+    $status = $_POST['status'];
+
+    // Check if the employee ID exists in the add_detail table
+    $check_query = "SELECT * FROM add_detail WHERE employee_id = $employeeID";
+    $result = mysqli_query($conn, $check_query);
+
+    if(mysqli_num_rows($result) == 0) {
+        // Employee ID not found, display popup message
+        echo '<script>alert("Employee ID not found.");</script>';
+    } else {
+        // Get current date and time using date function.
+        $current_date = date("Y-m-d"); // Get current date
+        $current_timein = date("H:i:s"); // Get current time i.e hrs:min:sec
+        $current_timeout = date("H:i:s");
+
+        // Fetch the schedule of the employee from the schedule table
+        $schedule_query = "SELECT * FROM schedule WHERE employee_id = $employeeID";
+        $schedule_result = mysqli_query($conn, $schedule_query);
+
+        if(mysqli_num_rows($schedule_result) > 0) {
+            // Fetch employee_id, start and end time from the schedule table
+            $schedule_row = mysqli_fetch_assoc($schedule_result);
+
+            // fetch data of start_time, end_time from database column to get schedule info e.g [10am-5pm] to determine the status i.e late or ontime
+            $start_time = $schedule_row['start_time']; 
+            $end_time = $schedule_row['end_time'];
+
+            // Determine attendance status based on the schedule
+            if($status == 'in') { //The value 'in' represent that the employee is currently "in" or present at work.
+
+                if ($current_timein > $start_time) {
+                    $attendance_status = 'Late';
+                } elseif ($current_timein <= $start_time) {
+                    $attendance_status = 'On Time';
+                }
+
+                // Insert time in for the employee
+                $query = "INSERT INTO attendance (date, employee_id, time_in, status) VALUES ('$current_date', $employeeID, '$current_timein', '$attendance_status')";
+            } elseif($status == 'out') {
+                // Update time out for the employee
+                $query = "UPDATE attendance SET time_out = '$current_timeout' WHERE employee_id = $employeeID AND date = '$current_date'";
+            }
+        } else {
+            // if schedule not set, display popup message
+            echo '<script>alert("Schedule not set. Please add schedule");</script>';
+            exit(); // Exit here if schedule not set
+        }
+
+        // Execute the query
+        if(mysqli_query($conn, $query)) {
+            // JavaScript for showing success popup
+            echo '<script>alert("Attendance recorded successfully.");</script>';
+        } else {
+            // JavaScript for showing error popup
+            echo '<script>alert("Error recording attendance.");</script>';
+        }
+    }
+}
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Attendance Form</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f6f6f6;
-  }
-  
-  .attendance-container {
-    max-width: 370px; /* Reduced width */
-    margin: 120px auto;
-    padding: 45px 20px; /* Adjust padding: top/bottom 30px, left/right 20px */
-    background-color: #fff;
-    border-radius: 14px;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
-  }
-  
-  .attendance-heading {
-    text-align: center;
-    margin-bottom: 47px;
-    margin-top: -8px;
-  }
-  
-  .attendance-label {
-    font-weight: bold;
-   
-  }
-  
-  .attendance-input {
-    width: 100%;
-    padding: 11px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    margin-top: 8px;
-  }
-
-  .attendance-button {
-    width: 100%;
-    padding: 11px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-    margin-top: 18px;
-  }
-  
-  .attendance-button:hover {
-    background-color: #0056b3;
-  }
-</style>
+<link rel="stylesheet" href="css/attendance.css"/>
 </head>
 <body>
 <div class="attendance-container">
@@ -81,49 +98,3 @@ include('dashboard.php');
 </div>
 </body>
 </html>
-
-<?php
-// Include the database connection file
-include('db_connect.php');
-
-// Check if form is submitted
-if(isset($_POST['submit'])) {
-    // Retrieve form data
-    $employeeID = $_POST['employeeid'];
-    $status = $_POST['status'];
-
-     // Check if the employee ID exists in the add_detail table
-     $check_query = "SELECT * FROM add_detail WHERE employee_id = $employeeID";
-     $result = mysqli_query($conn, $check_query);
-
-     if(mysqli_num_rows($result) == 0) {
-      // Employee ID not found, display popup message
-      echo '<script>alert("Employee ID not found.");</script>';
-  } else {
-    // Get current date and time
-    $current_date = date("Y-m-d"); // Get current date
-    $current_timein = date("H:i:s"); // Get current time i.e hrs:min:sec
-    $current_timeout = date("H:i:s");
-
-    // Check if status is 'in' or 'out'
-    if($status == 'in') { //The value 'in' represent that the employee is currently "in" or present at work.
-
-        // Insert time in for the employee
-        $query = "INSERT INTO attendance (date, employee_id, time_in, status) VALUES ('$current_date', $employeeID, '$current_timein', '$attendance_status')";
-    }   elseif($status == 'out') {
-        // Update time out for the employee
-        $query = "UPDATE attendance SET time_out = '$current_timeout' WHERE employee_id = $employeeID AND date = '$current_date'";
-    }
-
-    // Execute the query
-    if(mysqli_query($conn, $query)) {
-        // JavaScript for showing success popup
-        echo '<script>alert("Attendance recorded successfully.");</script>';
-    } else {
-        // JavaScript for showing error popup
-        echo '<script>alert("Error recording attendance.");</script>';
-    }
-}
-}
-
-?>
