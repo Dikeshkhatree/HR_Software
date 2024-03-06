@@ -13,8 +13,8 @@ if (isset($_POST['submit'])) {
     $role = $_POST['role'];
     $address = $_POST['address'];
 
-// Convert the date format from 'MM/DD/YYYY' to 'YYYY-MM-DD'
-//strtotime function converts date or time string written in natural/human language into standard date format.
+// Convert the date format from 'MM/DD/YYYY' to ('YYYY-MM-DD'= standard format)
+//strtotime function converts date or time string written in natural/human language into standard date format by using function date();
 // "2022-04-03" is a string in programming terminology.
 
     // $join_date = date('Y-m-d', strtotime($join_date));
