@@ -13,11 +13,9 @@ if (isset($_POST['submit'])) {
     $role = $_POST['role'];
     $address = $_POST['address'];
 
-// Convert the date format from 'MM/DD/YYYY' to ('YYYY-MM-DD'= standard format)
-//strtotime function converts date or time string written in natural/human language into standard date format by using function date();
+//strtotime function converts date or time string written in natural/human language into unix timestamps i.e(1261522 number in second) 
+// & by using function date(), it converts into standard date format i.e ("2022-04-03").
 // "2022-04-03" is a string in programming terminology.
-
-    // $join_date = date('Y-m-d', strtotime($join_date));
 
     // Construct a SQL query to insert data into the 'employee_details' table
     $insertQuery = "INSERT INTO add_detail(username, user_pass, employee_id, email, joining_date, role, address) 
