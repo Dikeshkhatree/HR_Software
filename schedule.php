@@ -5,8 +5,8 @@ if(isset($_POST['add_schedule'])){
     $start_time = $_POST['time_in'];
     $end_time = $_POST['time_out'];
    
- //strtotime function converts date or time string written in natural/human language into standard time format i.e ('H:i:s') using function date().
-    $start_time = date('H:i:s', strtotime($start_time)); // 'H:i:s' is a standard time format that defines time only
+ //strtotime function converts date or time string written in natural/human language into unix timestamp & by using date() function, it converts into standard time format i.e ('H:i:s').
+    $start_time = date('H:i:s', strtotime($start_time)); // 'H:i:s' is a standard time format => 24hour format that defines time only
     $end_time = date('H:i:s', strtotime($end_time));
     
     // Check if the employee ID exists in the add_detail table
