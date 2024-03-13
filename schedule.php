@@ -14,7 +14,7 @@ if(isset($_POST['add_schedule'])){
     $result = mysqli_query($conn, $check_query);
 
     if(mysqli_num_rows($result) == 0) {
-        // Employee ID not found, display popup message
+        // Employee ID not found, display popup messagegit 
         echo '<script>alert("Employee ID not found.");</script>';
         exit(); // Stop further execution
     } else {
