@@ -7,26 +7,26 @@ include('timezone.php');// include timezone to display localtime of kathmandu/Ne
 
 // Check if form is submitted
 if(isset($_POST['submit'])) {
-    // Retrieve form data
+    // Retrieve form data and stored into this variable
     $employeeID = $_POST['employeeid'];
     $status = $_POST['status'];
 
     // Check if the employee ID exists in the add_detail table
     $check_query = "SELECT * FROM add_detail WHERE employee_id = $employeeID";
-    $result = mysqli_query($conn, $check_query);
+    $result = mysqli_query($conn, $check_query); // execute the query
 
     if(mysqli_num_rows($result) == 0) {
         // Employee ID not found, display popup message
         echo '<script>alert("Employee ID not found.");</script>';
     } else {
         // Get current date and time using date function.
-        $current_date = date("Y-m-d"); // Get current date
+        $current_date = date("Y-m-d"); // Get current date & store into variable $current_date.
         $current_timein = date("H:i:s"); // Get current time i.e hrs:min:sec
         $current_timeout = date("H:i:s");
 
         // Fetch the schedule of the employee from the schedule table
         $schedule_query = "SELECT * FROM schedule WHERE employee_id = $employeeID";
-        $schedule_result = mysqli_query($conn, $schedule_query);
+        $schedule_result = mysqli_query($conn, $schedule_query); // execute the query
 
         if(mysqli_num_rows($schedule_result) > 0) {
             // Fetch employee_id, start and end time from the schedule table
@@ -48,8 +48,32 @@ if(isset($_POST['submit'])) {
                 // Insert time in for the employee
                 $query = "INSERT INTO attendance (date, employee_id, time_in, status) VALUES ('$current_date', $employeeID, '$current_timein', '$attendance_status')";
             } elseif($status == 'out') {
+
                 // Update time out for the employee
                 $query = "UPDATE attendance SET time_out = '$current_timeout' WHERE employee_id = $employeeID AND date = '$current_date'";
+                 mysqli_query($conn, $query); // Execute the query
+
+              // calculate the no. of hours worked
+             $query = "SELECT * from attendance WHERE employee_id = $employeeID AND date = '$current_date'";
+             $result = mysqli_query($conn, $query); // Execute the query
+            
+             if(mysqli_num_rows($result) > 0) {
+              $row = mysqli_fetch_assoc($result);
+
+// fetch the data of 'time_in' and 'time_out' from the attendance table and store in variable i.e  $time_in and $time_out
+              $time_in = strtotime($row['time_in']); 
+              $time_out = strtotime($row['time_out']); 
+
+               // Calculate the time difference in seconds
+                $time_diff_seconds = $time_out - $time_in;
+
+                // Convert seconds to hours
+                $time_worked_hours = $time_diff_seconds / 3600;
+
+                 // Update the hours worked in the attendance table
+                 $query = "UPDATE attendance SET hours_worked = $time_worked_hours WHERE employee_id = $employeeID AND date = '$current_date'";
+                 mysqli_query($conn, $query); // execute the query
+             }
             }
         } else {
             // if schedule not set, display popup message
@@ -61,9 +85,11 @@ if(isset($_POST['submit'])) {
         if(mysqli_query($conn, $query)) {
             // JavaScript for showing success popup
             echo '<script>alert("Attendance recorded successfully.");</script>';
+
         } else {
             // JavaScript for showing error popup
             echo '<script>alert("Error recording attendance.");</script>';
+            
         }
     }
 }
