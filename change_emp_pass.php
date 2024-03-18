@@ -27,7 +27,7 @@ if (isset($_POST['change_password'])) {
             
             $green_message = "Password Changed Successfully !"; // $message is the variable here
         } else {
-            $message = "Current Password does not match";
+            $message = "Current Password does not match"; 
         }
     } else {
         $message = "New Password & Confirm New Password do not match";
@@ -131,7 +131,6 @@ if (isset($_POST['change_password'])) {
                     <input type="password" placeholder="Current Password" name="current_password" required>
                 </div>
                
-
                 <div class="input-group">
                     <input type="password" placeholder="New Password" name="new_password" required>
                 </div>
