@@ -51,7 +51,6 @@ if (isset($_SESSION['user'])) {
       <div class="menu_content">
         <ul class="menu_items">
      
-          
           <li class="item">
             <a href="home.php" class="nav_link submenu_item">
               <span class="navlink_icon">
