@@ -63,18 +63,7 @@ if (isset($_SESSION['user'])) {
               <i class="bx bx-chevron-right arrow-left"></i>
             </a>
           </li>
-          
-  
-            <a href="attendance.php" class="nav_link submenu_item">
-              <span class="navlink_icon">
-              <i class="bx bx-calendar"></i>
-              </span>
-              <span class="navlink">Attendance</span>
-              <i class="bx bx-chevron-right arrow-left"></i>
-              </a>
         
-        
-
             <a href="#" class="nav_link submenu_item">
               <span class="navlink_icon">
               <i class="bx bx-calendar-minus"></i>
@@ -82,10 +71,7 @@ if (isset($_SESSION['user'])) {
               <span class="navlink">Apply Leave</span>
               <i class="bx bx-chevron-right arrow-left"></i>
               </a>
-
-          
-          
-           
+ 
             <a href="#" class="nav_link submenu_item">
               <span class="navlink_icon">
             <i class="bx bx-bar-chart"></i>
