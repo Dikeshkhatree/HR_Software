@@ -159,11 +159,13 @@ if (isset($_SESSION['user'])) {
     <script src="script.js"></script>
 
   <script>
+    // for profile popup
   let subMenu = document.getElementById("subMenu");
       function toggleMenu(){
          subMenu.classList.toggle("open-menu");
       }
 
+  // for sidebar toggle
   const sidebar = document.querySelector('.sidebar');
 const sidebarOpen = document.getElementById('sidebarOpen');
 
