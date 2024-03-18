@@ -300,7 +300,7 @@ box-shadow: 0 0 10px rgba(0,0,0,0.2);
 border-radius: 8px;
 }
 
-/* how much u want to popup profile */
+/* length size of popup profile */
 .sub-menu-wrap.open-menu{
   max-height: 400px;
 }
