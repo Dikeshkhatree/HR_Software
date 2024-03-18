@@ -275,7 +275,6 @@ nav{
   width : 100%;
   padding: 10px 10%;
   display: flex;
- 
   justify-content: space-between;
  
 }
@@ -287,10 +286,7 @@ nav{
   border-radius: 50%;
   cursor: pointer;
   margin-left: 600px;
-
-
 }
-
 
 .sub-menu-wrap{
 position:absolute;  
@@ -304,10 +300,10 @@ box-shadow: 0 0 10px rgba(0,0,0,0.2);
 border-radius: 8px;
 }
 
+/* how much u want to popup profile */
 .sub-menu-wrap.open-menu{
   max-height: 400px;
 }
-
 
 .sub-menu{
   background: #fff;
