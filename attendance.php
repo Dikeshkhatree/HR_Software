@@ -1,6 +1,4 @@
 <?php
-include('dashboard.php');
-
 // Include the database connection file
 include('db_connect.php');
 include('timezone.php');// include timezone to display localtime of kathmandu/Nepal
@@ -9,21 +7,28 @@ include('timezone.php');// include timezone to display localtime of kathmandu/Ne
 if(isset($_POST['submit'])) {
     // Retrieve form data and stored into this variable
     $employeeID = $_POST['employeeid'];
+    $password = $_POST['pass'];
     $status = $_POST['status'];
 
-    // Check if the employee ID exists in the add_detail table
+    // Check if add_detail table column i.e 'employee_id' value matches the value of variables from above using post method.
     $check_query = "SELECT * FROM add_detail WHERE employee_id = $employeeID";
     $result = mysqli_query($conn, $check_query); // execute the query
 
     if(mysqli_num_rows($result) == 0) {
         // Employee ID not found, display popup message
-        echo '<script>alert("Employee ID not found.");</script>';
+        echo '<script>alert("Employee ID not found.");
+        window.location.href = "loginpage.php";
+        </script>';
     } else {
+        // Fetch the row for password
+        $row = mysqli_fetch_assoc($result);
+        // Compare the password
+        if($row['user_pass'] == $password) {
         // Get current date and time using date function.
         $current_date = date("Y-m-d"); // Get current date & store into variable $current_date.
         $current_timein = date("H:i:s"); // Get current time i.e hrs:min:sec
         $current_timeout = date("H:i:s");
-
+    
         // Fetch the schedule of the employee from the schedule table
         $schedule_query = "SELECT * FROM schedule WHERE employee_id = $employeeID";
         $schedule_result = mysqli_query($conn, $schedule_query); // execute the query
@@ -46,7 +51,7 @@ if(isset($_POST['submit'])) {
                 }
 
                 // Insert time in for the employee
-                $query = "INSERT INTO attendance (date, employee_id, time_in, status) VALUES ('$current_date', $employeeID, '$current_timein', '$attendance_status')";
+                $query = "INSERT INTO attendance (date, employee_id, user_pass, time_in, status) VALUES ('$current_date', $employeeID, '$password', '$current_timein', '$attendance_status')";
             } elseif($status == 'out') {
 
                 // Update time out for the employee
@@ -75,52 +80,27 @@ if(isset($_POST['submit'])) {
                  mysqli_query($conn, $query); // execute the query
              }
             }
-        } else {
-            // if schedule not set, display popup message
-            echo '<script>alert("Schedule not set. Please add schedule");</script>';
-            exit(); // Exit here if schedule not set
-        }
-
-        // Execute the query
-        if(mysqli_query($conn, $query)) {
-            // JavaScript for showing success popup
-            echo '<script>alert("Attendance recorded successfully.");</script>';
-
-        } else {
-            // JavaScript for showing error popup
-            echo '<script>alert("Error recording attendance.");</script>';
-            
-        }
-    }
+      
+// Execute the query
+if(mysqli_query($conn, $query)) {
+    echo '<script>alert("Attendance recorded Successfully !");
+    window.location.href = "loginpage.php";
+    </script>';
+    exit();
+} else {
+    echo '<script>alert("Error recording attendance.");</script>';
 }
-?>
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Attendance Form</title>
-<link rel="stylesheet" href="css/attendance.css"/>
-</head>
-<body>
-<div class="attendance-container">
-  <h2 class="attendance-heading">Attendance Form</h2>
-  <form action="" method="post">
-    <div>
-      <label for="employee" class="attendance-label">Employee ID:</label>
-      <input type="text" id="employee" class="attendance-input" name="employeeid" required>
-    </div>
-    <div>
-      <label for="status" class="attendance-label">Status:</label>
-      <select id="status" name="status" class="attendance-input">
-        <option value="in">Time In</option>
-        <option value="out">Time Out</option>
-      </select>
-    </div>
-    <button type="submit" class="attendance-button" name="submit">Submit</button>
-  </form>
-</div>
-</body>
-</html>
+} else {
+    echo '<script>alert("Schedule not set. Please add schedule.");
+    window.location.href = "loginpage.php";
+    </script>';
+exit(); // Exit here if schedule not set
+}
+} else {
+// Password does not match, display popup message
+echo '<script>alert("Password doesnot match.");
+window.location.href = "loginpage.php";
+</script>';
+}
+}
+}
