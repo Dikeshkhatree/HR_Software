@@ -15,14 +15,19 @@ if(isset($_POST['add_schedule'])){
 
     if(mysqli_num_rows($result) == 0) {
         // Employee ID not found, display popup messagegit 
-        echo '<script>alert("Employee ID not found.");</script>';
+        echo '<script>alert("Employee ID not found.");
+        window.location.href = "add_schedule.php";
+        </script>';
         exit(); // Stop further execution
     } else {
         $insertQuery = "INSERT INTO schedule (employee_id, start_time, end_time) VALUES ($employeeID, '$start_time', '$end_time')";
     
         // Execute the SQL query
         if ($conn->query($insertQuery) === TRUE) {
-            header('');
+         // Schedule added successfully, display popup message
+            echo '<script>alert("Schedule added successfully !");
+        window.location.href = "add_schedule.php";
+        </script>';
         } else {
             echo "Invalid: " . $insertQuery . "<br>" . $conn->error;
         }
