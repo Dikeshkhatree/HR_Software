@@ -11,7 +11,6 @@
         h4 {
             color: #3E54AC;
         }
-
         h1 {
             color: black;
         }
@@ -22,7 +21,6 @@
             align-content: center;
             align-items: center;
         }
-
         .form-content {
             max-width: 800px;
             margin: auto;
@@ -44,8 +42,7 @@
         p {
             color: black;
         }
-
-        .forgot{
+     .forgot{
      margin-left: 262px;
     margin-top: -54px;
     margin-bottom: -14px 
@@ -113,7 +110,6 @@
         border: 2px solid #ced4da;
         font-size: 1rem;
     }
-
     .attendance-input-group button {
         width: 100%;
         padding: 12px 20px;
@@ -124,11 +120,9 @@
         cursor: pointer;
         margin-top: 7px;
     }
-
     .attendance-text {
         color: #ffffff;
     }
-
     .attendance-input-group button:hover {
         background-color: #0076CE;
     }
