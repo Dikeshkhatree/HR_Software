@@ -77,7 +77,7 @@ if (isset($_SESSION['user'])) {
               </a>
           
 
-            <a href="#" class="nav_link submenu_item">
+            <a href="view_leave.php" class="nav_link submenu_item">
               <span class="navlink_icon">
               <i class="bx bx-calendar-minus"></i>
               </span>
