@@ -87,7 +87,6 @@ h2 {
               <input type="number" id="employeeid" name="employeeid" class="form-control" placeholder="" required>
              </div>
 
-    
                 <div class="input-group">
                 <label for="time_in" class="sr-only">Start time</label>
                <input type="time" id="time_in" name="time_in" class="form-control" placeholder="Start time" required>
