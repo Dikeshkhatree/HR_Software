@@ -1,12 +1,11 @@
 <?php
 // Start the session
 session_start();
-
 // Check if the user_name is set in the session
-if (isset($_SESSION['user'])) {
-  
+//if set then user allow to access the homepage and username is displayed in homepage.
+if (isset($_SESSION['user'])) {  
 } else {
-  // Redirect to the login page if the user_name is not set in the session
+  // Redirect to the login page if the user_name is not set in the session. when user logout & try to access the system, it doesnot directly navigate to homepage instead it redirects to login page. only the authorized user can access the system.
   header("Location: loginpage.php");
   exit();
 }
@@ -61,16 +60,13 @@ if (isset($_SESSION['user'])) {
             </a>
           </li>
           
-  
-            <a href="" class="nav_link submenu_item">
+            <a href="view_attendance.php" class="nav_link submenu_item">
               <span class="navlink_icon">
               <i class="bx bx-calendar"></i>
               </span>
               <span class="navlink">Attendance</span>
               <i class="bx bx-chevron-right arrow-left"></i>
               </a>
-         
-        
         
             <a href="#" class="nav_link submenu_item">
               <span class="navlink_icon">
@@ -106,11 +102,11 @@ if (isset($_SESSION['user'])) {
               </a>
 
 
-            <a href="add_schedule.php" class="nav_link submenu_item">
+            <a href="view_schedule.php" class="nav_link submenu_item">
               <span class="navlink_icon">
-              <i class="bx bx-calendar-plus"></i>
+              <i class="bx bx-calendar"></i>
             </span>
-              <span class="navlink">Add Schedule</span>
+              <span class="navlink">View Schedule</span>
               <i class="bx bx-chevron-right arrow-left"></i>
               </a>
 
