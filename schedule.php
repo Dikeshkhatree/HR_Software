@@ -20,7 +20,9 @@ if(isset($_POST['add_schedule'])){
         </script>';
         exit(); // Stop further execution
     } else {
-        $insertQuery = "INSERT INTO schedule (employee_id, start_time, end_time) VALUES ($employeeID, '$start_time', '$end_time')";
+        $row = mysqli_fetch_assoc($result);
+        $username = $row['username']; // to print username also in schedule table
+        $insertQuery = "INSERT INTO schedule (employee_id, username, start_time, end_time) VALUES ($employeeID, '$username', '$start_time', '$end_time')";
     
         // Execute the SQL query
         if ($conn->query($insertQuery) === TRUE) {
