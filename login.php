@@ -14,7 +14,7 @@ if (isset($_POST['submit'])) {
 // SQL query to check if the provided username and password exist in the 'admin' table
 $checkadmin = "SELECT * from admin WHERE (user_name='$username' OR email='$username') AND user_pass='$password'";
 
-// SQL query to check if the provided username and password exist in the 'register_employee' table
+// SQL query to check if the provided username and password exist in the 'add_detail' table
 $checkemployee = "SELECT * from add_detail WHERE (username='$username' OR email='$username') AND user_pass='$password'";
 
 // Execute the SQL query
