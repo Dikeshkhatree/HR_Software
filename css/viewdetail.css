@@ -93,20 +93,6 @@ td, th {
    background-color: rgb(96, 85, 247);
 }
 
-.action-column .create {
-   text-decoration: none;
-   color: white;
-   font-weight: 600;
-   margin-right: 25px;
-   border-radius: 7px;
-   background-color: #4c71f5;
-   padding: 4px 7px 4px 7px;
-}
-
-.action-column .create:hover {
-   background-color:#6a8bf7;
-}
-
 .action-column .edit {
    text-decoration: none;
    color: white;
