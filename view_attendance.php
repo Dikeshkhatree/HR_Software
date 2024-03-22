@@ -21,6 +21,7 @@ include('home.php');
 
                 <th>Date</th>           
                 <th>Employee ID</th>             
+                <th>Username</th>             
                 <th>Time In</th>
                 <th>Time Out</th>
                 <th>Status</th>
@@ -44,6 +45,7 @@ include('home.php');
           // Extract data from the database and assign it to variables given below.
                     $Date=$row['date'];  // this 'date' is database name & other all
                     $employeeID = $row['employee_id'];
+                    $username = $row['user_name'];
                     $timein = $row['time_in'];
                     $timeout = $row['time_out'];
                     $status = $row['status'];
@@ -52,7 +54,8 @@ include('home.php');
                // output of HTML table row
                     echo "<tr>
                     <td>".$Date."</td>             
-                    <td>".$employeeID."</td>
+                    <td>".$employeeID."</td>                   
+                    <td>".$username."</td>                   
                     <td>".$timein."</td>     
                     <td>".$timeout."</td>
                     <td>".$status."</td>
