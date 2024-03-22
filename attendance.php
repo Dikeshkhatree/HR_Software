@@ -22,6 +22,7 @@ if(isset($_POST['submit'])) {
     } else {
         // Fetch the row for password
         $row = mysqli_fetch_assoc($result);
+        $username = $row['username']; // fetch username from add_detail and print in attendance table
         // Compare the password
         if($row['user_pass'] == $password) {
         // Get current date and time using date function.
@@ -51,7 +52,7 @@ if(isset($_POST['submit'])) {
                 }
 
                 // Insert time in for the employee
-                $query = "INSERT INTO attendance (date, employee_id, user_pass, time_in, status) VALUES ('$current_date', $employeeID, '$password', '$current_timein', '$attendance_status')";
+                $query = "INSERT INTO attendance (date, employee_id, user_name, user_pass, time_in, status) VALUES ('$current_date', $employeeID, '$username', '$password', '$current_timein', '$attendance_status')";
             } elseif($status == 'out') {
 
                 // Update time out for the employee
