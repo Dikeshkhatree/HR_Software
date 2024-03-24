@@ -71,6 +71,13 @@ if (isset($_SESSION['user'])) {
               <span class="navlink">Apply Leave</span>
               <i class="bx bx-chevron-right arrow-left"></i>
               </a>
+            <a href="emp_view_leave.php" class="nav_link submenu_item">
+              <span class="navlink_icon">
+              <i class="bx bx-show"></i>
+              </span>
+              <span class="navlink">view Leave</span>
+              <i class="bx bx-chevron-right arrow-left"></i>
+              </a>
  
             <a href="#" class="nav_link submenu_item">
               <span class="navlink_icon">
