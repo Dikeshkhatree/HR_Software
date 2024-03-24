@@ -238,7 +238,6 @@
     </div>
 </div>
 
-
 <script> 
 function showAttendancePopup(){
     document.querySelector('.attendance-container').classList.add('showpopup');
