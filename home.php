@@ -76,12 +76,11 @@ if (isset($_SESSION['user'])) {
               <i class="bx bx-chevron-right arrow-left"></i>
               </a>
           
-
-            <a href="view_leave.php" class="nav_link submenu_item">
+            <a href="admin_view_leave.php" class="nav_link submenu_item">
               <span class="navlink_icon">
-              <i class="bx bx-calendar-minus"></i>
+              <i class="bx bx-history"></i>
               </span>
-              <span class="navlink">Leave</span>
+              <span class="navlink">Leave History</span>
               <i class="bx bx-chevron-right arrow-left"></i>
               </a>
 
