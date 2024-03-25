@@ -5,10 +5,11 @@ include("db_connect.php");
 if (isset($_POST['submit'])) { 
 // it Retrieve values from the submitted form
 $employeeID = $_POST['employeeID'];
+$fromdate = $_POST['from_date'];
 $status = $_POST['status'];
 
  // SQL query to update status
- $updateQuery = "UPDATE apply_leave SET status = '$status' WHERE employee_id = '$employeeID'";
+ $updateQuery = "UPDATE apply_leave SET status = '$status' WHERE employee_id = '$employeeID' AND from_date = '$fromdate'";
 
  // Execute the SQL query
  if ($conn->query($updateQuery) === TRUE) {
