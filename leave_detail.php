@@ -189,13 +189,14 @@ include('home.php');
        // Include the file with the database connection
        include("db_connect.php");
 
-       // Check if the employeeID parameter is set in the URL
+       // Check if the employeeID & fromdate parameter is set in the URL
        if(isset($_GET['id'])) {
            // Retrieve employeeID from the URL
            $employeeID = $_GET['id'];
+           $fromdate = $_GET['fromdate'];
 
-           // SQL query to retrieve leave details based on employeeID
-           $selectQuery = "SELECT * FROM apply_leave WHERE employee_id = $employeeID";
+           // SQL query to retrieve leave details based on employeeID and fromdate
+           $selectQuery = "SELECT * FROM apply_leave WHERE employee_id = $employeeID AND from_date = '$fromdate'";
 
            // Execute the SQL query
            $result = $conn->query($selectQuery);
@@ -235,7 +236,7 @@ include('home.php');
        }
        ?>
          <div class="image-container">
-           <img src="images/leave.jpg" alt="Image 1">
+           <img src="images/leave.jpg" alt="LeaveImage">
           
        </div>
    </div>
@@ -245,6 +246,7 @@ include('home.php');
    <div class="custom-container">
        <form class="custom-form" method='POST' action='update_status.php'>
            <input type='hidden' name='employeeID' value='<?php echo $employeeID ?>'>
+           <input type='hidden' name='from_date' value='<?php echo $fromdate ?>'>
            <label class="custom-label" for='status'>Update Status:</label>
            <select class="custom-select" name='status' id='status'>
                <option value='Approved'>Approved</option>
