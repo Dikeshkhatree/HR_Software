@@ -60,8 +60,8 @@ include('home.php');
                                    <b>".$status."</b>
                                </td>
                                    <td class='action-column'>
-                                       <!-- $employeeID is a PHP variable holding the value of the id parameter. -->
-                                       <a class='viewdetail' href='leave_detail.php?id=$employeeID'>View Detail</a>
+                                       <!-- $employeeID & $fromdate is a PHP variable holding the value of the id and fromdate parameter. -->
+                                       <a class='viewdetail' href='leave_detail.php?id=$employeeID & fromdate=$fromdate'>View Detail</a>
                                    </td>
                                </tr>"; // End of the table row
                        }
