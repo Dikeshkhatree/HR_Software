@@ -38,20 +38,19 @@ if (isset($_SESSION['user'])) {
 
         <div class="profile_section">
      
-
         <img src="images/koli.jpg" alt="" class="profile" style="width: 40px; height: 40px;" onclick="toggleMenu()"/>
         <i class='bx bx-bell' ></i>
       </div>
       </div>
     </nav>
-   
+  
     <!-- sidebar -->
     <nav class="sidebar">
       <div class="menu_content">
         <ul class="menu_items">
      
           <li class="item">
-            <a href="home.php" class="nav_link submenu_item">
+            <a href="chart.php" class="nav_link submenu_item">
               <span class="navlink_icon">
                 <i class="bx bx-home-alt"></i>
               </span>
