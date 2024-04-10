@@ -59,7 +59,7 @@ include('home.php');
                   
                     <!-- $employeeID is a PHP variable holding the value of the id parameter. -->
   
-                    <a class='delete' href='delete_schedule.php?id=$employeeID'>Delete</a>
+                    <a class='edit' href='edit_schedule.php?id=$employeeID'>Update</a>
                   </td>
                   </tr>";
                 }
