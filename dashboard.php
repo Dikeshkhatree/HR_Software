@@ -53,7 +53,6 @@ if (isset($_SESSION['user'])) {
       <div class="menu_content">
         <ul class="menu_items">
      
-          
           <li class="item">
             <a href="dashboard.php" class="nav_link submenu_item">
               <span class="navlink_icon">
@@ -64,6 +63,13 @@ if (isset($_SESSION['user'])) {
             </a>
           </li>
         
+          <a href="calendar.php" class="nav_link submenu_item">
+              <span class="navlink_icon">
+              <i class="bx bx-calendar-check"></i>
+              </span>
+              <span class="navlink">Calendar</span>
+              <i class="bx bx-chevron-right arrow-left"></i>
+              </a>
             <a href="apply_leave.php" class="nav_link submenu_item">
               <span class="navlink_icon">
               <i class="bx bx-calendar-minus"></i>
