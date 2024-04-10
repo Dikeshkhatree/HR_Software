@@ -50,7 +50,7 @@ if (isset($_SESSION['user'])) {
         <ul class="menu_items">
      
           <li class="item">
-            <a href="chart.php" class="nav_link submenu_item">
+            <a href="home.php" class="nav_link submenu_item">
               <span class="navlink_icon">
                 <i class="bx bx-home-alt"></i>
               </span>
