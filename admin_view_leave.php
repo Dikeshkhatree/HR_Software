@@ -31,7 +31,7 @@ include('home.php');
                        include("db_connect.php");
 
                        // SQL query to retrieve data from the 'apply_leave' table
-                       $selectQuery = "SELECT * FROM apply_leave";
+                       $selectQuery = "SELECT * FROM apply_leave ORDER BY Date DESC";
 
                        // Execute the SQL query
                        $result = $conn->query($selectQuery);
