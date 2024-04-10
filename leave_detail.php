@@ -106,8 +106,6 @@ include('home.php');
        .action-button:hover {
            background-color: #0077a3;
        }
-
-
     
 /* for update status */
 .custom-container {
@@ -129,7 +127,6 @@ include('home.php');
 .custom-container.showpopup {
     top: 35%; /* Move to the middle of the screen */
 }
-
 
        .update-overlay{
         width: 100%;
@@ -190,7 +187,7 @@ include('home.php');
        include("db_connect.php");
 
        // Check if the employeeID & fromdate parameter is set in the URL
-       if(isset($_GET['id'])) {
+       if(isset($_GET['id']) && isset($_GET['fromdate'])) {
            // Retrieve employeeID from the URL
            $employeeID = $_GET['id'];
            $fromdate = $_GET['fromdate'];
