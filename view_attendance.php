@@ -35,7 +35,7 @@ include('home.php');
             include("db_connect.php");
 
        // SQL query to retrieve data from the 'attendance' table
-            $selectQuery = "SELECT * FROM attendance";
+            $selectQuery = "SELECT * FROM attendance ORDER BY date DESC"; // date in descending order
 
             // Execute the SQL query
             $result = $conn->query($selectQuery);
@@ -65,8 +65,8 @@ include('home.php');
                   
                     <!-- $employeeID is a PHP variable holding the value of the id parameter. -->
   
-                    <a class='edit' href='update_attendance.php?id=$employeeID'>Edit</a>  
-                    <a class='delete' href='delete_attendance.php?id=$employeeID'>Delete</a>
+                    <a class='edit' href='edit_attendance.php?id=$employeeID & date=$Date'>Edit</a>
+                    <a class='delete' href='delete_att.php?id=$employeeID'>Delete</a>
                   </td>
                   </tr>";
                 }
