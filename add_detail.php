@@ -145,8 +145,6 @@ include('home.php');
     <label for="floatingInputAddress" style="margin-left: 7px;">Address</label>
 </div>
 
-
-  
                                         <div class="d-flex justify-content-center pt-4">
                                             <button type="submit" class="btn btn-primary btn-lg ms-1" name="submit">Submit
                                                 form</button>
