@@ -129,7 +129,7 @@ function drawChart() {
     ['Absent', 10],
     ['Late', 20],
     ['Present', 20],
-    ['Leave Applied', 10]
+    ['Leave Applied', 20]
   ]);
 
   const options = {
