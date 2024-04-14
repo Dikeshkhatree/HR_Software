@@ -20,7 +20,6 @@ include('fetchdata.php');
     margin-left: 205px;
     
   }
-
   .box {
     width: 285px;
     height: 118px;
