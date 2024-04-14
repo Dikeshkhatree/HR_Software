@@ -63,7 +63,7 @@ include('home.php');
                                        <!-- $employeeID & $fromdate is a PHP variable holding the value of the id and fromdate parameter. -->
                                        <a class='viewdetail' href='leave_detail.php?id=$employeeID & fromdate=$fromdate'>View Detail</a>
                                    </td>
-                               </tr>"; // End of the table row
+                               </tr>"; 
                        }
                        ?>
                    </tbody>
