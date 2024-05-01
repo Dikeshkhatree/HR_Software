@@ -1,5 +1,8 @@
 <?php
+// Include the database connection file
 include('db_connect.php');
+// Start session
+session_start();
 
 // Check if form is submitted
 if(isset($_POST['submit'])) {
@@ -12,10 +15,9 @@ if(isset($_POST['submit'])) {
     $result = mysqli_query($conn, $query);
 
     if(mysqli_num_rows($result) == 0) {
-        // User not found in employee table, display error message
-        echo '<script>alert("Employee ID not found.");
-        window.location.href = "add_rate.php";
-        </script>';
+        // User not found in employee table, set error message
+        $_SESSION['error_message'] = "Employee ID not found.";
+        header("Location: add_rate.php");
         exit(); // Stop further execution
     } else {
         // Fetch the role from employee
@@ -27,14 +29,16 @@ if(isset($_POST['submit'])) {
         $insertQuery = "INSERT INTO rate (employee_id, user_name, role, hourly_rate) VALUES ($employeeID, '$username', '$role', $hourlyrate)";
     
         // Execute the SQL query
-        if ($conn->query($insertQuery) === TRUE) {
-            // Leave request added successfully, display a success message
-            echo '<script>alert("Added successfully!");
-            window.location.href = "add_rate.php";
-            </script>';
+        if (mysqli_query($conn, $insertQuery)) {
+            // Set success message
+            $_SESSION['success_message'] = "Rate Added Successfully !";
+            header("Location: add_rate.php");
+            exit();
         } else {
             // Display error message if query execution fails
-            echo "Error: " . $insertQuery . "<br>" . mysqli_error($conn);
+            $_SESSION['error_message'] = "Error: " . mysqli_error($conn);
+            header("Location: add_rate.php");
+            exit();
         }
     }
 }
