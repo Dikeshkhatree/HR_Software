@@ -2,7 +2,7 @@
 include('db_connect.php'); // Include your database connection file
 
 // Query to count the total number of employees
-$sqlTotal = "SELECT COUNT(*) AS total_employees FROM add_detail";
+$sqlTotal = "SELECT COUNT(*) AS total_employees FROM employee";
 $resultTotal = $conn->query($sqlTotal);
 
 // Fetch result row for total employees
