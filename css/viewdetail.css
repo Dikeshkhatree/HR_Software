@@ -11,7 +11,7 @@
    display:inline-block;
    border-radius: 8px;
    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-   margin-left: 280px;
+   margin-left: 250px;
    margin-top: 120px;
 }
 
@@ -83,7 +83,7 @@ td, th {
    background-color: #464cf5;
    color: white;
    border: none;
-   margin-left: 1285px; /* Adjusted margin */
+   margin-left: 1340px; /* Adjusted margin */
    cursor: pointer;
 
 }
