@@ -33,7 +33,7 @@ include('home.php');
             include("db_connect.php");
 
        // SQL query to retrieve data from the 'schedule' table
-            $selectQuery = "SELECT * FROM schedule";
+            $selectQuery = "SELECT * FROM schedule ORDER BY Date DESC";
 
             // Execute the SQL query
             $result = $conn->query($selectQuery);
