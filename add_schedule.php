@@ -7,118 +7,36 @@ include('home.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add schedule</title>
+    <link rel="stylesheet" href="css/schedule.css"/>
    <style>
-    body {
-    background-color: #f8f9fa;
-    font-family: Arial, sans-serif;
-}
-
-.container {
-    max-width: 400px;
-    margin: 100px auto;
-}
-
-.content {
-    background-color: #ffffff;
-    border-radius: 20px;
-    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-}
-
-h2 {
-    color: #3E54AC;
-    text-align: center;
-    margin-top: 15px;
-    margin-bottom: 26px;
-    margin-right: 37px;
-}
-
-.input-group {
-    margin-bottom: 20px;
-}
-
-.input-group input {
-    width: 100%;
-    padding: 12px 20px;
-    border-radius: 10px;
-    border: 2px solid #ced4da;
-    font-size: 1rem;
-}
-
-.input-group button {
-    width: 100%;
-    padding: 12px 20px;
-    border-radius: 10px;
-    font-size: 1rem;
-    background-color: #007FFF;
-    
-    border: none;
-    cursor: pointer;
-}
-
-.text{
-    color: #ffffff;
-}
-.input-group button:hover {
-    background-color: #0076CE;
-}
-
-.text-group {
-    text-align: center;
-    margin-top: 10px;
-}
-
-.text-group a {
-    color: #007FFF;
-}
-.form-control{
-    margin-top: 8px;
-}
-/* this is for selected options */
-.select-wrapper {
-    position: relative;
-    width: 100%;
-}
-
-.select-wrapper select {
-    width: 100%;
-    padding: 12px 40px 12px 20px; /* Added extra padding on the right for the arrow */
-    border-radius: 10px;
-    border: 2px solid #ced4da;
-    font-size: 1rem;
-    appearance: none;
-    background-color: #fff;
-    cursor: pointer;
-}
-
-.select-wrapper::after {
-    content: '';
-    position: absolute;
-    top: calc(50% - 4px); /* Vertically center the arrow */
-    right: 15px; /* Adjust the position of the arrow */
-    width: 0;
-    height: 0;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-top: 6px solid #212121; /* Color of the arrow */
-    pointer-events: none; 
-}
-
-.select-wrapper select:focus {
-    outline: none;
-}
-
-.select-wrapper select option {
-    background-color: #fff;
-    color: #212121;
-}
-
-
+       .success {
+            color: green;
+            text-align: center;
+            margin-top: -4px;
+            margin-bottom: 10px;
+        }
+        .error {
+            color: red;
+            text-align: center;
+        }
    </style>
 </head>
 <body>
     <div class="container">
         <div class="content">
+        <?php
+        // Display success message if it exists
+        if (isset($_SESSION['success_message'])) {
+            echo '<p class="success">' . $_SESSION['success_message'] . '</p>';
+            unset($_SESSION['success_message']); // Clear the message after displaying
+        }
+
+        // Display error message if it exists
+        if (isset($_SESSION['error_message'])) {
+            echo '<p class="error">' . $_SESSION['error_message'] . '</p>';
+            unset($_SESSION['error_message']); // Clear the message after displaying
+        }
+        ?>
             <h2>Add Schedule</h2>
             <form action="schedule.php" method="post">
             <div class="input-group">
@@ -128,11 +46,11 @@ h2 {
             <option value="" disabled selected>Select Employee</option>
             <?php
             include('db_connect.php');
-            
-            // Fetch employee details from the database
-            $query = "SELECT * FROM add_detail";
-            $result = mysqli_query($conn, $query);
-            
+
+           // Fetch employee details who do not have schedules from the database
+           $query = "SELECT * FROM employee WHERE employee_id NOT IN (SELECT DISTINCT employee_id FROM schedule)"; //distinct is keyword that returns unique value & eliminate duplicate rows
+           $result = mysqli_query($conn, $query);
+           
             // Loop through each employee and create an option for the select dropdown 
             while ($row = mysqli_fetch_assoc($result)) {
                 echo '<option value="' . $row['employee_id'] . '">' . $row['username'] . ' - ' . $row['employee_id'] . '</option>';
