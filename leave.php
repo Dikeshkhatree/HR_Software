@@ -16,11 +16,11 @@ if(isset($_POST['submit'])) {
     $username = $_SESSION['user'];
 
     // Query to retrieve the username from the table
-    $query = "SELECT * FROM add_detail WHERE username = '$username'";
+    $query = "SELECT * FROM employee WHERE username = '$username'";
     $result = mysqli_query($conn, $query);
 
     if(mysqli_num_rows($result) == 0) {
-        // User not found in add_detail table, display error message
+        // User not found in employee table, display error message
         echo '<script>alert("User not found.");
         window.location.href = "apply_leave.php";
         </script>';
