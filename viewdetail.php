@@ -24,7 +24,7 @@ include('home.php');
                 <th>Employee ID</th>
                 <th>Email</th>
                 <th>Role</th>
-                <th>Address</th>
+                <th>Department</th>
                 <th>Action</th>
            
         </thead>
@@ -34,7 +34,7 @@ include('home.php');
             include("db_connect.php");
 
        // SQL query to retrieve data from the 'employee_detail' table
-            $selectQuery = "SELECT * FROM add_detail";
+            $selectQuery = "SELECT * FROM employee ORDER BY joining_date DESC";
 
             // Execute the SQL query
             $result = $conn->query($selectQuery);
@@ -46,8 +46,8 @@ include('home.php');
                     $employeeID = $row['employee_id'];
                     $email = $row['email'];
                     $join_date = $row['joining_date'];
-                    $role = $row['role'];
-                    $address = $row['address'];                 
+                    $role = $row['role'];      
+                    $department = $row['department'];                 
             
                // output of HTML table row
                     echo "<tr>
@@ -56,7 +56,7 @@ include('home.php');
                     <td>".$employeeID."</td>
                     <td>".$email."</td>     
                     <td>".$role."</td>
-                    <td>".$address."</td>
+                    <td>".$department."</td>
                                                        
                     <td class='action-column'>
                   
@@ -76,7 +76,7 @@ include('home.php');
    </div>
    
          <div class="addComponent">
-            <a href="add_detail.php"><button class="employeeAdd" name="employeeadd">Add Employee</button></a>
+            <a href="employee.php"><button class="employeeAdd" name="employeeadd">Add Employee</button></a>
          </div>
  
 </body>
