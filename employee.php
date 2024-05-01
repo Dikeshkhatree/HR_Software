@@ -1,5 +1,6 @@
 <?php
 include('home.php');
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,12 +42,13 @@ include('home.php');
 .h-100 {
     height: 20% !important;
     margin-right: -13px;
-    margin-top: -7px;
+    margin-top: -31px;
 }
        
     </style>
 
     <title>Add employee Form</title>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>
@@ -77,16 +79,31 @@ include('home.php');
                                                     </label>
                                                 </div>
                                             </div>
-
+                                        
                                             <div class="col-md-6 mb-4">
-                                                <div class="form-floating mb-1">
-                                                    <input type="text" id="floatingInputpassword"
-                                                        class="form-control form-control-lg input-field"
-                                                        placeholder="password" name="pass" autocomplete="" required/>
-                                                    <label for="floatingInputpassword"
-                                                        style="margin-left: 7px;">Password</label>
-                                                </div>
+                                            <div class="form-floating mb-1">
+                                                <select id="floatingSelectDepartment" class="form-select form-select-lg input-field" name="department" required>
+                                                    <option value="">Select Department</option>
+                                                    <?php
+                                                    // Include the file containing the database connection
+                                                    include('db_connect.php');
+                                                    // Fetch department values from the database
+                                                    $sql = "SELECT department FROM department";
+                                                    $result = $conn->query($sql);
+
+                                                    // Display department options
+                                                    if ($result->num_rows > 0) {
+                                                        while ($row = $result->fetch_assoc()) {
+                                                            echo "<option value='" . $row['department'] . "'>" . $row['department'] . "</option>";
+                                                        }
+                                                    }
+                                                    // Close the database connection
+                                                    $conn->close();
+                                                    ?>
+                                                </select>
+                                                <label for="floatingSelectDepartment" style="margin-left: 7px;">Department</label>
                                             </div>
+                                        </div>
                                         </div>
 
                                         <div class="row">
@@ -101,7 +118,6 @@ include('home.php');
                                             </div>
 
                                             <div class="col-md-6 mb-4">
-
                                                 <div class="form-floating mb-1">
                                                     <input type="email" id="floatingInputEmail"
                                                         class="form-control form-control-lg input-field"
@@ -127,19 +143,18 @@ include('home.php');
                                   <div class="col-md-6 mb-4">
     <div class="form-floating mb-1">
         <select id="floatingSelectRole" class="form-select form-select-lg input-field" name="role" required>
-            <option value="" disabled>Select Role</option>
+            <option value="">Select Role</option>
             <option value="AI/ML engineer">AI/ML Engineer</option>
+            <option value="IOS developer">IOS Developer</option>
             <option value="Graphics designer">Graphics Designer</option>
             <option value="Web developer">Web Developer</option>
-            <option value="Software developer">Software Developer</option>
         </select>
         <label for="floatingSelectRole" style="margin-left: 7px;">Role</label>
     </div>
 </div>
-
 </div>
-<div class="col-md-11 mb-4">
 
+<div class="col-md-11 mb-4">
 <div class="form-floating mb-1">
     <input type="text" id="floatingInputAddress" class="form-control form-control-lg input-field large-width" placeholder="Address" name="address" autocomplete="" required>
     <label for="floatingInputAddress" style="margin-left: 7px;">Address</label>
@@ -158,7 +173,34 @@ include('home.php');
             </div>
         </div>
     </section>
-
+    <?php
+    // Check if there is a success parameter in the URL
+    if (isset($_GET['success']) && isset($_SESSION['form_submitted']) && $_SESSION['form_submitted'] === true) {
+        if ($_GET['success'] === "true") {
+            // Display success message using SweetAlert
+            echo '<script>
+            swal({
+                title: "Success!",
+                text: "Mail sent successfully!",
+                icon: "success",
+                button: "OK",
+              });
+            </script>';
+        } else {
+            // Display error message using SweetAlert
+            echo '<script>
+            swal({
+                title: "Error!",
+                text: "Mail unsuccessful!",
+                icon: "error",
+                button: "OK",
+              });
+            </script>';
+        }
+        // Reset the session variable to prevent the message from appearing on page refresh
+        unset($_SESSION['form_submitted']);
+    }
+    ?>
 </body>
 
 </html>
