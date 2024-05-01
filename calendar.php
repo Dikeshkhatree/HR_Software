@@ -12,16 +12,20 @@ $username = $_SESSION['user'];
 $sql = "SELECT date, time_in, time_out, status FROM attendance WHERE user_name = '$username'";
 $result = mysqli_query($conn, $sql); // Assuming $conn is your database connection variable
 
-// Fetch the date of joining for the logged-in user from the add_detail table
-$joiningDateQuery = "SELECT joining_date FROM add_detail WHERE username = '$username'";
+// Fetch the date of joining for the logged-in user from the employee table
+$joiningDateQuery = "SELECT joining_date FROM employee WHERE username = '$username'";
 $joiningDateResult = mysqli_query($conn, $joiningDateQuery);
 $row = mysqli_fetch_assoc($joiningDateResult);
 $joiningDate = $row['joining_date'];
 
+// Fetch leave data for the logged-in user from the database
+$leaveSql = "SELECT * FROM apply_leave WHERE user_name = '$username'";
+$leaveResult = mysqli_query($conn, $leaveSql);
+
 // Define an empty array to store event data
 $events = array();
 
-// Loop through each row in the result set
+// Loop through each row in the result set for attendance
 while ($row = mysqli_fetch_assoc($result)) {
     // Create the event title with time in and time out on one line and status on another line
     $title = 'In:' . $row['time_in'] . ' - Out:' . $row['time_out'] . '<br>Status: ' . $row['status'] . '<br>(Present)';
@@ -43,12 +47,27 @@ while ($row = mysqli_fetch_assoc($result)) {
     $events[] = $event;
 }
 
+// Loop through each row in the result set for leave
+while ($leaveRow = mysqli_fetch_assoc($leaveResult)) {
+    // Create an event object for each leave request
+    $leaveEvent = array(
+        'title' => 'Leave Applied',
+        'start' => $leaveRow['from_date'], // Use the from_date as the event start date
+        'end' => date('Y-m-d', strtotime($leaveRow['to_date'] . ' +1 day')),
+        'backgroundColor' => '5BBCFF', // color for leave events
+        'textColor' => '#fff',
+    );
+
+    // Add the leave event object to the events array
+    $events[] = $leaveEvent;
+}
+
 // Close the database connection
 mysqli_close($conn);
 
 // Add absent days and week-off days (Saturdays) to the calendar
 $startDate = $joiningDate; // Start from the joining date
-$endDate = date('Y-m-d'); // End today
+$endDate = date('Y-m-d'); // today's current date
 
 $currentDate = $startDate;
 while ($currentDate <= $endDate) {
