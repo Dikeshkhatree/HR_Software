@@ -19,7 +19,7 @@ include('home.php');
     <table>
         <thead>
 
-              <th>Date</th>
+              <th>Date Range</th>
                 <th>Employee ID</th>
                 <th>Username</th>
                 <th>Role</th>
@@ -33,7 +33,7 @@ include('home.php');
             include("db_connect.php");
 
        // SQL query to retrieve data from the 'employee_detail' table
-            $selectQuery = "SELECT * FROM payroll ORDER BY Date DESC";
+            $selectQuery = "SELECT * FROM payroll ORDER BY employee_id DESC";
 
             // Execute the SQL query
             $result = $conn->query($selectQuery);
@@ -41,7 +41,7 @@ include('home.php');
           // Iterate through each row in the result set & loop continues until there are no more rows left 
                 while ($row = $result->fetch_assoc()) {
           // Extract data from the database and assign it to variables given below.
-                    $date = $row['date'];
+                    $daterange = $row['date_range'];
                     $employeeID = $row['employee_id'];
                     $username = $row['username'];
                     $role = $row['role'];
@@ -49,7 +49,7 @@ include('home.php');
                                  
                // output of HTML table row
                     echo "<tr>
-                    <td>".$date."</td>
+                    <td>".$daterange."</td>
                     <td>".$employeeID."</td>
                     <td>".$username."</td>      
                     <td>".$role."</td>
