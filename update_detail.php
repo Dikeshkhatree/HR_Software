@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
     $address = $_POST['address'];
 
     // Update data in the 'employee_detail' table
-    $updateQuery = "UPDATE add_detail 
+    $updateQuery = "UPDATE employee 
                     SET  username='$username', email='$email', joining_date='$join_date', role='$role', address='$address'
                     WHERE employee_id=$employeeID";
        
@@ -35,7 +35,7 @@ if (isset($_GET['id'])) {
 $employeeID = $_GET['id'];
 
 // Query to fetch data from the database
-$query = "SELECT * FROM add_detail WHERE employee_id=$employeeID";
+$query = "SELECT * FROM employee WHERE employee_id=$employeeID";
 
 // Execute the query
 $result = mysqli_query($conn, $query);
