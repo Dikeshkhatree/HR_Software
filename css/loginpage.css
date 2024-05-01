@@ -1,0 +1,117 @@
+h4 {
+    color: #3E54AC;
+}
+h1 {
+    color: black;
+}
+.content {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+.form-content {
+    max-width: 800px;
+    margin: auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 40px;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.input-field {
+    border-radius: 10px;
+    border: 3px solid #ced4da;
+    padding: 12px 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    font-size: 1rem;
+}
+
+p {
+    color: black;
+}
+.forgot{
+margin-left: 262px;
+margin-top: -54px;
+margin-bottom: -14px 
+}
+.attendance{
+width: 180px;
+height: 42px;
+margin-left: 58px;
+margin-top: 9px;
+margin-bottom: 0px;
+}
+
+/* Attendance form CSS styles */
+.attendance-container {
+margin: 100px auto;
+position:absolute;
+display: inline-block;
+top: -70%;
+left: 50%;
+z-index: 2;
+transform: translate(-50%,-50%);
+transition: top 0.4s ease;   
+}
+
+.attendance-overlay{
+width: 100%;
+height: 100vh;
+background: rgba(50, 50, 50, 0.7);
+position: fixed;
+left: 0;
+top: 0;
+z-index: -1;
+opacity: 0;
+}
+.showOverlay{
+opacity: 1;
+z-index: 1;
+}
+.showpopup{
+top: 36%;  
+}
+.attendance-content {
+background-color: #ffffff;
+border-radius: 20px;
+box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+padding: 30px 30px 15px 30px;
+}
+
+.attendance-h2 {
+color: #3E54AC;
+text-align: center;
+margin-bottom: 30px;
+}
+
+.attendance-input-group {
+margin-bottom: 20px;
+}
+
+.attendance-input-group input,
+.attendance-input-group select {
+width: 100%;
+padding: 12px 20px;
+border-radius: 10px;
+border: 2px solid #ced4da;
+font-size: 1rem;
+}
+.attendance-input-group button {
+width: 100%;
+padding: 12px 20px;
+border-radius: 10px;
+font-size: 1rem;
+background-color: #007FFF;
+border: none;
+cursor: pointer;
+margin-top: 7px;
+}
+.attendance-text {
+color: #ffffff;
+}
+.attendance-input-group button:hover {
+background-color: #0076CE;
+}
