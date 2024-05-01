@@ -67,7 +67,7 @@ if (isset($_SESSION['user'])) {
               <i class="bx bx-chevron-right arrow-left"></i>
               </a>
         
-            <a href="#" class="nav_link submenu_item">
+            <a href="add_payroll.php" class="nav_link submenu_item">
               <span class="navlink_icon">
               <i class="bx bx-dollar-circle"></i>
               </span>
@@ -83,14 +83,30 @@ if (isset($_SESSION['user'])) {
               <i class="bx bx-chevron-right arrow-left"></i>
               </a>
 
-            <a href="#" class="nav_link submenu_item">
+              <a href="add_department.php" class="nav_link submenu_item">
               <span class="navlink_icon">
-              <i class="bx bx-user"></i>
+              <i class="bx bx-laptop"></i>
               </span>
-              <span class="navlink">Self-service</span>
+              <span class="navlink">Department</span>
               <i class="bx bx-chevron-right arrow-left"></i>
               </a>
-           
+
+            <a href="add_rate.php" class="nav_link submenu_item">
+              <span class="navlink_icon">
+              <i class="bx bx-time"></i>
+              </span>
+              <span class="navlink">Hourly Rate</span>
+              <i class="bx bx-chevron-right arrow-left"></i>
+              </a>
+
+              <a href="view_salary.php" class="nav_link submenu_item">
+              <span class="navlink_icon">
+              <i class="bx bx-dollar"></i>
+              </span>
+              <span class="navlink">Salary Details</span>
+              <i class="bx bx-chevron-right arrow-left"></i>
+              </a> 
+
              <a href="viewdetail.php" class="nav_link submenu_item">
               <span class="navlink_icon">
               <i class="bx bx-check"></i>
@@ -99,7 +115,6 @@ if (isset($_SESSION['user'])) {
               <i class="bx bx-chevron-right arrow-left"></i>
               </a>
 
-
             <a href="view_schedule.php" class="nav_link submenu_item">
               <span class="navlink_icon">
               <i class="bx bx-calendar"></i>
@@ -107,14 +122,6 @@ if (isset($_SESSION['user'])) {
               <span class="navlink">View Schedule</span>
               <i class="bx bx-chevron-right arrow-left"></i>
               </a>
-
-            <a href="#" class="nav_link submenu_item">
-              <span class="navlink_icon">
-              <i class="bx bx-cog"></i>
-              </span>
-              <span class="navlink">Settings</span>
-              <i class="bx bx-chevron-right arrow-left"></i>
-              </a> 
         </div>
       </div>
     </nav>
@@ -147,9 +154,6 @@ if (isset($_SESSION['user'])) {
      </div>
      </div>
      </nav>
-    
-    <!-- JavaScript -->
-    <script src="script.js"></script>
 
   <script>
     // for profile popup
