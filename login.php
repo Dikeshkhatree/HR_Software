@@ -9,12 +9,12 @@ if (isset($_POST['submit'])) {
  //OR it Retrieve values from the submitted form
     $username = $_POST['username'];
     $password = $_POST['pass'];   
-}
+
 // SQL query to check if the provided username and password exist in the 'admin' table
 $checkadmin = "SELECT * from admin WHERE (user_name='$username' OR email='$username') AND user_pass='$password'";
 
-// SQL query to check if the provided username and password exist in the 'add_detail' table
-$checkemployee = "SELECT * from add_detail WHERE (username='$username' OR email='$username') AND user_pass='$password'";
+// SQL query to check if the provided username and password exist in the 'employee' table
+$checkemployee = "SELECT * from employee WHERE (username='$username' OR email='$username') AND user_pass='$password'";
 
 // Execute the SQL query
 $resultadmin = $conn->query($checkadmin);
@@ -52,7 +52,7 @@ $database_fetch = $resultemployee->fetch_assoc();
     window.location.href = "loginpage.php";
   </script>';
 }
-
+}
   // Close the database connection
 $conn->close();
 
