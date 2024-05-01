@@ -31,7 +31,7 @@ include('home.php');
                include("db_connect.php");
 
                // Pagination variables
-               $limit = 8; // Number of records per page
+               $limit = 20; // Number of records per page
                $page = isset($_GET['page']) ? $_GET['page'] : 1; // Current page, default is 1
 
                // Calculate the offset for the SQL query
