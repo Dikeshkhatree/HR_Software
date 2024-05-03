@@ -57,7 +57,10 @@ include('home.php');
                   $timein = $row['time_in'];
                   $timeout = $row['time_out'];
                   $status = $row['status'];
-                  $hourswork = $row['hours_worked'];                 
+                  $hourswork = $row['hours_worked'];             
+                  
+                  // Determine the class based on status
+    $status_class = ($status == 'Late') ? 'late' : 'on-time';
 
                   // output of HTML table row
                   echo "<tr>
@@ -66,7 +69,7 @@ include('home.php');
                      <td>".$username."</td>                   
                      <td>".$timein."</td>     
                      <td>".$timeout."</td>
-                     <td>".$status."</td>
+                     <td ><p class='".$status_class."'>".$status."</p></td>
                      <td>".$hourswork."</td>
                      <td class='action-column'>
                         <a class='edit' href='edit_attendance.php?id=$employeeID & date=$Date'>Edit</a>
