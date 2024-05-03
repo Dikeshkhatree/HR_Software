@@ -63,7 +63,7 @@ session_start();
                 </div>
                 <div class="input-group">
                     <label for="hourly_rate" class="sr-only">Hourly Rate</label>
-                    <input type="text" id="hourly_rate" name="hourly_rate" class="form-control" placeholder="Enter rate name">
+                    <input type="text" id="hourly_rate" name="hourly_rate" class="form-control" placeholder="Enter rate">
                 </div>
                 <div class="input-group" style="margin-bottom: 10px;">
                     <button type="submit" class="text" name="submit">Submit</button>
