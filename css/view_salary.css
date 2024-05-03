@@ -10,7 +10,7 @@
    display:inline-block;
    border-radius: 8px;
    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-   margin-left: 370px;
+   margin-left: 310px;
    margin-top: 100px;
 }
 
@@ -68,6 +68,22 @@ td, th {
 .addComponent {
    display: block;
 }
+
+.action-column .view {
+   text-decoration: none;
+   color: white;
+   font-weight: 600;
+   margin-right: 25px;
+   border-radius: 7px;
+   background-color: #007bff; /* Change to blue */
+   padding: 4px 7px 4px 7px;
+}
+
+.action-column .view:hover {
+   background-color: #0056b3; /* Change to a darker shade of blue for hover */
+}
+
+
 
 .action-column .edit {
    text-decoration: none;
