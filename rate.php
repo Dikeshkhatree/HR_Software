@@ -4,12 +4,47 @@ include('db_connect.php');
 // Start session
 session_start();
 
+// Function to check if a string contains only numbers
+function isValidHourlyRate($hourlyrate) {
+    return preg_match('/^\d+(\.\d+)?$/', $hourlyrate); // regex to match numbers
+}
+
 // Check if form is submitted
 if(isset($_POST['submit'])) {
     // Retrieve form data
     $employeeID = $_POST['employee_id'];
     $hourlyrate = $_POST['hourly_rate'];
    
+     // Check if employee ID is empty
+     if(empty($employeeID)) { 
+        // Set error message for empty employee ID
+        $_SESSION['error_message'] = "Please fill out Employee ID field.";
+
+        // Redirect to the frontend page
+        header("Location: add_rate.php");
+        exit();
+    }
+
+    // Check if hourly rate is empty
+    if(empty($hourlyrate)) {
+        // Set error message for empty hourly rate
+        $_SESSION['error_message'] = "Please fill out Hourly Rate field.";
+
+        // Redirect to the frontend page
+        header("Location: add_rate.php");
+        exit();
+    }
+
+    // Check if hourly rate is a valid number
+    if (!isValidHourlyRate($hourlyrate)) {
+        // Set error message for invalid hourly rate
+        $_SESSION['error_message'] = "Please input a valid number for Hourly Rate.";
+
+        // Redirect to the frontend page
+        header("Location: add_rate.php");
+        exit();
+    }
+
     // Query to retrieve the username from the table
     $query = "SELECT * FROM employee WHERE employee_id = $employeeID";
     $result = mysqli_query($conn, $query);
