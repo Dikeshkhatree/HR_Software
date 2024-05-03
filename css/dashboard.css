@@ -359,4 +359,9 @@ border-radius: 8px;
 .sub-menu-link:hover p{
   font-weight: 600;
 }
-
+.image-class {
+  width: 1146px;
+  margin-left: 300px;
+  margin-top: 94px;
+  height: 577px;
+}
