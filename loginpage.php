@@ -3,7 +3,6 @@ session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <title>loginpage</title>
@@ -12,13 +11,8 @@ session_start();
         crossorigin="anonymous" />
     <link rel="stylesheet" href="css/loginpage.css" />
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <style>
-      
-    </style>
 </head>
-
 <body>
-
     <div class="vh-100">
         <div class="content"
             style="background-color: #0089ede6;height: 50vh; position: relative;top:0; padding: 1rem; margin: 0;">
@@ -26,27 +20,19 @@ session_start();
                 <h1 class="text-light"><b>Sign in to</b><br>HR System</h1>
 
                 <p class="text-light">
-                  
                     <img src="images/char.jpg" alt="" width="450px"
                         style="position: absolute;bottom:0;overflow: hidden;margin-bottom:-22rem;margin-left:10rem;">
-
             </div>
-
             <div class="row d-flex justify-content-center" style="position: relative;top: 175px;">
-
                 <div class="col-12 col-md-7 col-lg-6">
-
                     <div class="card-body p-7">
 
                         <div class="form-content">
                             <form action="login.php" method="post"
                                 class="row border border-0 border-dark mx-0 my-0">
-
-
                                 <center>
                                     <h1><sup style="font-size: 70%; color: blue;">HR Software</sup></h1>
                                 </center>
-
 
                                 <div class="d-flex justify-content-end align-items-center">
                                     <p class="me-2 mb-0"></p>
