@@ -33,7 +33,7 @@ include('home.php');
             include("db_connect.php");
 
        // SQL query to retrieve data from the 'employee_detail' table
-            $selectQuery = "SELECT * FROM payroll ORDER BY employee_id DESC";
+            $selectQuery = "SELECT * FROM payroll ORDER BY date DESC";
 
             // Execute the SQL query
             $result = $conn->query($selectQuery);
@@ -58,7 +58,7 @@ include('home.php');
                     <td class='action-column'>
                   
                     <!-- $employeeID is a PHP variable holding the value of the id parameter. -->
-  
+                    <a class='view' href='viewpay.php?id=$employeeID & date_range=$daterange'>View</a>
                     <a class='edit' href='update_salary.php?id=$employeeID'>Update</a>  
                   </td>
                   </tr>";
