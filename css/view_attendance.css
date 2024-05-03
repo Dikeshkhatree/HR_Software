@@ -124,3 +124,19 @@ td, th {
    border-radius: 50%;
    color: white;
  }
+ .on-time {
+   color: rgb(32, 174, 37);
+   background-color: rgb(203, 255, 203);
+   border-radius: 12px;
+   font-weight: 500;
+   padding: 2px 5px;
+   
+}
+
+.late {
+   color: rgb(232, 35, 35);
+   background-color: rgb(255, 213, 213);
+   border-radius: 12px;
+   padding: 2px 0px;
+   font-weight: 500;
+}
