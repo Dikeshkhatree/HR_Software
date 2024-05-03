@@ -56,6 +56,8 @@ if (isset($_POST['submitform'])) {
                     if ($status == 'in' && $row['time_in'] != NULL) {
                         // Time in is already recorded for today, prevent further time in marking
                         $_SESSION['error_message'] = "Attendance already marked for today!";
+                        header("Location: loginpage.php");
+                        exit();
                     }
                 }
 
