@@ -46,7 +46,7 @@ session_start();
                 <div class="input-group" style="margin-bottom: 35px;">
                     <label for="employeeid" class="sr-only">Employee</label>
                     <div class="select-wrapper">
-                        <select id="employeeid" name="employee_id" class="form-control" required>
+                        <select id="employeeid" name="employee_id" class="form-control">
                             <option value="" disabled selected>Select Employee</option>
                             <?php
                             // Fetch employee details from the database
@@ -63,7 +63,7 @@ session_start();
                 </div>
                 <div class="input-group">
                     <label for="hourly_rate" class="sr-only">Hourly Rate</label>
-                    <input type="number" id="hourly_rate" name="hourly_rate" class="form-control" placeholder="" required>
+                    <input type="text" id="hourly_rate" name="hourly_rate" class="form-control" placeholder="Enter rate name">
                 </div>
                 <div class="input-group" style="margin-bottom: 10px;">
                     <button type="submit" class="text" name="submit">Submit</button>
