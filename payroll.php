@@ -62,9 +62,14 @@ if(isset($_POST['submit'])) {
 
                 // Calculate salary
                 $salary = $total_hours * $hourly_rate;
+              // Calculate the deduction (10% of the total salary)
+              $deduction = $salary * 0.10;
+
+            // Calculate the net salary after deduction
+             $netsalary = $salary - $deduction;
 
                 // Insert the calculated salary into the payroll table
-                $insert_query = "INSERT INTO payroll (employee_id, username, role, date_range, salary) VALUES ($employeeId, '$username', '$role', '$dateRange', $salary)";
+                $insert_query = "INSERT INTO payroll (employee_id, username, role, date_range, salary, netsalary, paid) VALUES ($employeeId, '$username', '$role', '$dateRange', $salary, $netsalary, 'pending')";
                 mysqli_query($conn, $insert_query);
             }
         }
