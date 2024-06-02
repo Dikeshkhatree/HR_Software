@@ -48,14 +48,13 @@ session_start();
 
                                 <div class="form-floating mb-1">
                                     <input type="text" class="form-control input-field" id="floatingInput"
-                                        placeholder="Username or Email Address" name="username" autocomplete="username"
-                                        required>
+                                        placeholder="Username or Email Address" name="username">
                                     <label for="floatingInput" style="margin-left: 7px;">Username or Email </label>
                                 </div>
 
                                 <div class="form-floating mb-1">
                                     <input type="password" class="form-control input-field" id="floatingInputPassword"
-                                        placeholder="Password" name="pass" autocomplete="current-password" required>
+                                        placeholder="Password" name="pass">
                                     <label for="floatingInputPassword" style="margin-left: 7px;">Password</label>
                                 </div>
 
@@ -70,9 +69,8 @@ session_start();
                                 </div>
 
                                 <div class="forgot">
-                                    <a href="#" style="color: blue; text-decoration: none;">Forgot<br> Password?</a>
+                                    <a href="forgot.php" style="color: blue; text-decoration: none;">Forgot<br> Password?</a>
                                 </div>
-
                             </form>
                         </div>
                     </div>
@@ -80,6 +78,21 @@ session_start();
             </div>
         </div>
     </div>
+    <?php
+   
+    // Display error message if it exists
+    if (isset($_SESSION['error_message'])) {
+        echo '<script>
+            swal({
+                title: "Error!",
+                text: "' . $_SESSION['error_message'] . '",
+                icon: "error",
+                button: "OK",
+            });
+        </script>';
+        unset($_SESSION['error_message']); // Clear the message after displaying
+    }
+    ?>
 
     <!-- attendance form popup -->
     <!-- for closing attendance popup when clicked outside -->
@@ -94,14 +107,14 @@ session_start();
             <form action="attendance.php" method="post" class="attendance-form">
                 <div class="attendance-input-group">
                     <label for="employee" class="attendance-label">Login ID:</label>
-                    <input type="number" id="employee" class="attendance-input" name="employeeid"
-                        style="width: 100%; margin-top: 5px;" required>
+                    <input type="text" id="employee" class="attendance-input" name="employeeid"
+                        style="width: 100%; margin-top: 5px;">
                 </div>
 
                 <div class="attendance-input-group">
                     <label for="password" class="attendance-label">Password</label>
                     <input type="password" id="password" class="attendance-input" name="pass"
-                        style="width: 100% ; margin-top: 5px;" required>
+                        style="width: 100% ; margin-top: 5px;">
                 </div>
 
                 <div class="attendance-input-group">
