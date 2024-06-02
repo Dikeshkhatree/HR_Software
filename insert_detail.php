@@ -25,6 +25,45 @@ if (isset($_POST['submit'])) {
     $address = $_POST['address'];
     $department = $_POST['department'];
 
+    if(empty($employeeID) || empty($username) || empty($password) || empty($address) || empty($department) || empty($email) || empty($join_date)  || empty($role)){ 
+        // Set error message for empty employee ID
+        $_SESSION['error_message'] = "Please fill out all field.";
+
+        // Redirect to the frontend page
+        header("Location: employee.php");
+        exit();
+    }
+
+   // Define the isValidId function
+function isValidId($employeeID) {
+    return preg_match('/^\d+(\.\d+)?$/', $employeeID); // regex to match numbers
+}
+
+// Check if employee_id is a valid number
+if (!isValidId($employeeID)) {
+    // Set error message for invalid ID
+    $_SESSION['error_message'] = "Please input a valid number";
+
+    // Redirect to the frontend page
+    header("Location: employee.php");
+    exit();
+}
+// Function to validate an email address
+function isValidEmail($email) {
+    // Use PHP's filter_var function to validate email
+    return filter_var($email, FILTER_VALIDATE_EMAIL);
+}
+
+// Check if the email is valid
+if (!isValidEmail($email)) {
+    // Set error message for invalid email
+    $_SESSION['error_message'] = "Please enter a valid email address";
+
+    // Redirect to the frontend page
+    header("Location: employee.php");
+    exit();
+}
+
     // Construct a SQL query to insert data into the 'employee_details' table
     $insertQuery = "INSERT INTO employee(username, user_pass, employee_id, email, joining_date, role, address, department) 
                     VALUES ('$username', '$password', $employeeID, '$email', '$join_date', '$role', '$address', '$department')";
