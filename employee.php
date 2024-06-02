@@ -44,7 +44,13 @@ session_start();
     margin-right: -13px;
     margin-top: -31px;
 }
-       
+.error {
+    color: red;
+    text-align: center;
+    margin-left: -149px;
+    margin-top: -34px;
+    margin-bottom: 31px;
+        }
     </style>
 
     <title>Add employee Form</title>
@@ -66,15 +72,21 @@ session_start();
                             <div class="col-xl-6">
                                 <div class="card-body p-md-5 text-black">
 
-                                 <form action="insert_detail.php" method="post" class="row border border-0 border-dark mx-0 my-0">
+                                 <form action="insert_detail.php" method="post" class="row border border-0 border-dark mx-0 my-0">                          
                                         <h3 class="mb-5 text-uppercase">Add Employee Details</h3>
-
+                                        <?php                               
+                                // Display error message if it exists
+                                if (isset($_SESSION['error_message'])) {
+                                    echo '<p class="error">' . $_SESSION['error_message'] . '</p>';
+                                    unset($_SESSION['error_message']); // Clear the message after displaying
+                                }
+                                ?>
                                         <div class="row">
                                             <div class="col-md-6 mb-4">
                                                 <div class="form-floating mb-1">
                                                  <input type="text" id="floatingInputUserName"
                                                         class="form-control form-control-lg input-field"
-                                                        placeholder="User Name" name="user_nam" autocomplete="" required/>
+                                                        placeholder="User Name" name="user_nam">
                                                     <label for="floatingInputUserName" style="margin-left: 7px;">Username
                                                     </label>
                                                 </div>
@@ -82,7 +94,7 @@ session_start();
                                         
                                             <div class="col-md-6 mb-4">
                                             <div class="form-floating mb-1">
-                                                <select id="floatingSelectDepartment" class="form-select form-select-lg input-field" name="department" required>
+                                                <select id="floatingSelectDepartment" class="form-select form-select-lg input-field" name="department">
                                                     <option value="">Select Department</option>
                                                     <?php
                                                     // Include the file containing the database connection
@@ -109,9 +121,9 @@ session_start();
                                         <div class="row">
                                             <div class="col-md-6 mb-4">
                                                 <div class="form-floating mb-1">
-                                                    <input type="number" id="floatingInputEmployeeID"
+                                                    <input type="text" id="floatingInputEmployeeID"
                                                         class="form-control form-control-lg input-field"
-                                                        placeholder="Empid" name="empid"  autocomplete="" required/>
+                                                        placeholder="Empid" name="empid">
                                                     <label for="floatingInputEmployeeID"
                                                         style="margin-left: 7px;">Employee ID</label>
                                                 </div>
@@ -119,10 +131,10 @@ session_start();
 
                                             <div class="col-md-6 mb-4">
                                                 <div class="form-floating mb-1">
-                                                    <input type="email" id="floatingInputEmail"
+                                                    <input type="text" id="floatingInputEmail"
                                                         class="form-control form-control-lg input-field"
-                                                        placeholder="email@gmail.com" name="email" autocomplete="" required/>
-                                                    <label for="email"
+                                                        placeholder="email@gmail.com" name="email">
+                                                      <label for="email"
                                                         style="margin-left: 7px;">Email</label>
                                                 </div>
                                             </div>
@@ -134,7 +146,7 @@ session_start();
                                     <div class="form-floating mb-1">
                             <input type="date" id="floatingInputJoiningDate"
                               class="form-control form-control-lg input-field"
-                             name="join_date" autocomplete="" required/>
+                             name="join_date">
                               <label for="floatingInputJoiningDate"
                               style="margin-left: 2px;">Date of Joining</label>
                                  </div>
@@ -142,7 +154,7 @@ session_start();
 
                                   <div class="col-md-6 mb-4">
     <div class="form-floating mb-1">
-        <select id="floatingSelectRole" class="form-select form-select-lg input-field" name="role" required>
+        <select id="floatingSelectRole" class="form-select form-select-lg input-field" name="role">
             <option value="">Select Role</option>
             <option value="AI/ML engineer">AI/ML Engineer</option>
             <option value="IOS developer">IOS Developer</option>
@@ -156,7 +168,7 @@ session_start();
 
 <div class="col-md-11 mb-4">
 <div class="form-floating mb-1">
-    <input type="text" id="floatingInputAddress" class="form-control form-control-lg input-field large-width" placeholder="Address" name="address" autocomplete="" required>
+    <input type="text" id="floatingInputAddress" class="form-control form-control-lg input-field large-width" placeholder="Address" name="address">
     <label for="floatingInputAddress" style="margin-left: 7px;">Address</label>
 </div>
 
