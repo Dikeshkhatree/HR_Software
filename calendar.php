@@ -155,7 +155,18 @@ while ($currentDate <= $endDate) {
             eventRender: function(event, element) {
                 element.find('.fc-title').html(event.title); // Use jQuery to update the event title HTML
             },
-            eventClick: function(calEvent, jsEvent, view) {
+        
+            dayClick: function(date, jsEvent, view) {
+                var allowedDates = ['23', '22', '29', '24', '25', '26', '27', '28', '30']; // Specify allowed leave dates (DD format)
+                var formattedDate = date.format('DD'); // apply leave on any year and month
+
+                if (allowedDates.includes(formattedDate)) {
+                    window.location.href = 'apply_leave.php?date=' + formattedDate;
+                } else {
+                    alert('apply leave on the specific month.');
+                }
+            },
+            eventClick: function(calEvent, jsEvent, view) { //calback func
                 // Remove the <br> tag from the event title
                 var title = calEvent.title.replace('<br>', ' ').replace('<br>', ''); // Remove it twice to ensure removal of all occurrences
                 alert('Attendance: ' + title);
@@ -164,6 +175,5 @@ while ($currentDate <= $endDate) {
         });
     });
 </script>
-
 </body>
 </html>
