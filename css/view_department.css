@@ -1,0 +1,100 @@
+/* Import Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+
+
+/* this will allow you to keep this table in right position */
+   .table-container {
+   margin-bottom: 40px;
+   background-color: #fff;
+   display:inline-block;
+   border-radius: 8px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+   margin-left: 470px;
+   margin-top: 145px;
+}
+
+body {
+  
+    background-color: #f6f6f6;
+    min-height: 100vh;
+}
+
+.TableInfo {
+   font-size: 30px;
+   font-weight: 500;
+   margin-bottom: 15px;
+   text-align: center;
+}
+
+.table-div {
+   overflow-x: auto;
+}
+
+table {
+   width: 100%;
+   border-collapse: collapse;
+   margin-top: 10px;
+}
+
+thead th, tbody td {
+   padding: 10px 50px; /* Adjusted padding */
+   text-align: center;
+   border: 1px solid #ddd;
+}
+
+thead th {
+   background-color: #4c71f5;
+   color: white;
+}
+
+tbody tr:nth-child(even) {
+   background-color: #f2f2f2;
+}
+
+tbody td {
+   font-size: 16px;
+}
+
+td:last-child, th:last-child {
+   text-align: center;
+}
+
+td, th {
+   white-space: nowrap;
+}
+
+.addComponent {
+   display: block;
+}
+
+.depAdd {
+   padding: 10px;
+   border-radius: 7px;
+   font-weight: 500;
+   font-size: 18px;
+   background-color: #464cf5;
+   color: white;
+   border: none;
+   margin-left: 972px;
+   cursor: pointer;
+
+}
+
+.depAdd:hover {
+   background-color: rgb(96, 85, 247);
+}
+
+.action-column .edit {
+   text-decoration: none;
+   color: white;
+   font-weight: 600;
+   margin-right: 12px;
+   border-radius: 7px;
+   background-color: #4CAF50;
+   padding: 4px 7px 4px 7px;
+}
+
+.action-column .edit:hover {
+   background-color: #74b977;
+}
