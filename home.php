@@ -50,7 +50,7 @@ if (isset($_SESSION['user'])) {
         <ul class="menu_items">
      
           <li class="item">
-            <a href="home.php" class="nav_link submenu_item">
+            <a href="chart.php" class="nav_link submenu_item">
               <span class="navlink_icon">
                 <i class="bx bx-home-alt"></i>
               </span>
@@ -83,7 +83,7 @@ if (isset($_SESSION['user'])) {
               <i class="bx bx-chevron-right arrow-left"></i>
               </a>
 
-              <a href="add_department.php" class="nav_link submenu_item">
+              <a href="view_department.php" class="nav_link submenu_item">
               <span class="navlink_icon">
               <i class="bx bx-laptop"></i>
               </span>
@@ -91,7 +91,7 @@ if (isset($_SESSION['user'])) {
               <i class="bx bx-chevron-right arrow-left"></i>
               </a>
 
-            <a href="add_rate.php" class="nav_link submenu_item">
+            <a href="view_rate.php" class="nav_link submenu_item">
               <span class="navlink_icon">
               <i class="bx bx-time"></i>
               </span>
@@ -122,6 +122,20 @@ if (isset($_SESSION['user'])) {
               <span class="navlink">View Schedule</span>
               <i class="bx bx-chevron-right arrow-left"></i>
               </a>
+              <a href="admin_view_document.php" class="nav_link submenu_item">
+              <span class="navlink_icon">
+              <i class="bx bx-file"></i>
+            </span>
+              <span class="navlink">Document</span>
+              <i class="bx bx-chevron-right arrow-left"></i>
+              </a> 
+              <a href="document_type.php" class="nav_link submenu_item">
+              <span class="navlink_icon">
+              <i class="bx bx-file-find"></i>
+            </span>
+              <span class="navlink">Docum_Type</span>
+              <i class="bx bx-chevron-right arrow-left"></i>
+              </a> 
         </div>
       </div>
     </nav>
