@@ -10,6 +10,7 @@ include('home.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payroll</title>
     <link rel="stylesheet" href="css/payroll.css"/>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <style>
         .success {
             color: green;
@@ -30,19 +31,32 @@ include('home.php');
         <?php
         // Display success message if it exists
         if (isset($_SESSION['success_message'])) {
-            echo '<p class="success">' . $_SESSION['success_message'] . '</p>';
+            echo '<script>
+                swal({
+                    title: "Success!",
+                    text: "' . $_SESSION['success_message'] . '",
+                    icon: "success",
+                    button: "OK",
+                });
+            </script>';
             unset($_SESSION['success_message']); // Clear the message after displaying
         }
 
         // Display error message if it exists
         if (isset($_SESSION['error_message'])) {
-            echo '<p class="error">' . $_SESSION['error_message'] . '</p>';
+            echo '<script>
+                swal({
+                    title: "Error!",
+                    text: "' . $_SESSION['error_message'] . '",
+                    icon: "error",
+                    button: "OK",
+                });
+            </script>';
             unset($_SESSION['error_message']); // Clear the message after displaying
         }
         ?>
         <h2>Payroll</h2>
         <form action="payroll.php" method="post">
-          
             <div class="input-group">
                 <label for="from-date" class="sr-only">From Date:</label>
                 <input type="date" id="from-date" name="fromDate" class="form-control" placeholder="From Date" required>
@@ -51,7 +65,6 @@ include('home.php');
                 <label for="to-date" class="sr-only">To Date:</label>
                 <input type="date" id="to-date" name="toDate" class="form-control" placeholder="To Date" required>
             </div>
-
             <div class="input-group" style="margin-bottom: 10px;">
                 <button type="submit" name="submit" class="text">Submit</button>
             </div>
