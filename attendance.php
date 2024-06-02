@@ -11,6 +11,38 @@ if (isset($_POST['submitform'])) {
     $password = $_POST['pass'];
     $status = $_POST['status'];
 
+    if(empty($employeeID)){ 
+        // Set error message for empty employee ID
+        $_SESSION['error_message'] = "Please fill LoginID";
+  
+        // Redirect to the frontend page
+        header("Location: loginpage.php");
+        exit();
+    }
+  
+    if(empty($password)){ 
+      // Set error message for empty employee ID
+      $_SESSION['error_message'] = "Please fill password.";
+  
+      // Redirect to the frontend page
+      header("Location: loginpage.php");
+      exit();
+  }
+
+  // Define the isValidId function
+function isValidId($employeeID) {
+    return preg_match('/^\d+(\.\d+)?$/', $employeeID); // regex to match numbers
+}
+
+// Check if employee_id is a valid number
+if (!isValidId($employeeID)) {
+    // Set error message for invalid ID
+    $_SESSION['error_message'] = "Please input a valid number for ID";
+
+    // Redirect to the frontend page
+    header("Location: loginpage.php");
+    exit();
+}
     // Fetch the joining date of the employee from the employee table
     $joining_date_query = "SELECT joining_date FROM employee WHERE employee_id = $employeeID";
     $joining_date_result = mysqli_query($conn, $joining_date_query);
