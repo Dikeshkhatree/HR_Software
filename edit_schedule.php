@@ -13,13 +13,8 @@ $end_time = $_POST['end_time'];
 
  // Execute the SQL query
  if ($conn->query($updateQuery) === TRUE) {
-    echo '<script>alert("Schedule Updated successfully!");
-    window.location.href = "view_schedule.php";
-    </script>';
-} else {
-    echo '<script>alert("Error updating schedule!");
-    window.location.href = "view_schedule.php";
-    </script>';
+   header('Location:view_schedule.php');
+
 }
 }
 include('home.php');
