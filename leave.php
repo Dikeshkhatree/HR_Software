@@ -7,6 +7,7 @@ if(isset($_POST['submit'])) {
     // Retrieve form data
     $from_date = $_POST['from_date'];
     $to_date = $_POST['to_date'];
+    $leavetype = $_POST['leave_type'];
     $reason = $_POST['reason'];
       
     // Set the status to "Waiting for Approval"
@@ -32,17 +33,19 @@ if(isset($_POST['submit'])) {
         $employeeID = $row['employee_id'];
        
     //SQL statement to insert data into database
-    $insertQuery = "INSERT INTO apply_leave (employee_id, user_name, from_date, to_date, reason, status) VALUES ($employeeID, '$username', '$from_date', '$to_date', '$reason', '$status')";  
+    $insertQuery = "INSERT INTO apply_leave (employee_id, user_name, from_date, to_date, leave_type, reason, status) VALUES ($employeeID, '$username', '$from_date', '$to_date', '$leavetype', '$reason', '$status')";  
     
     // Execute the SQL query
-    if ($conn->query($insertQuery) === TRUE) {
-        // Leave request added successfully, display a success message
-        echo '<script>alert("Leave applied successfully!");
-        window.location.href = "apply_leave.php";
-        </script>';
-    } else {
-        echo "Error: " . $insertQuery . "<br>" . $conn->error;
-    }
+  // Execute the SQL query
+  if ($conn->query($insertQuery) === TRUE) {
+    $_SESSION['success_message'] = "Leave applied successfully";
+} else {
+    $_SESSION['error_message'] = "An error occurred while applying for leave.";
+}
+
+// Redirect to the leave request page
+header("Location: apply_leave.php");
+exit();
 }
 }
 ?>
