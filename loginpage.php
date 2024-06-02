@@ -69,7 +69,7 @@ session_start();
                                 </div>
 
                                 <div class="forgot">
-                                    <a href="forgot.php" style="color: blue; text-decoration: none;">Forgot<br> Password?</a>
+                                    <a href="#" style="color: blue; text-decoration: none;">Forgot<br> Password?</a>
                                 </div>
                             </form>
                         </div>
