@@ -38,8 +38,8 @@ include('home.php'); ?>
         <br>
         <h2>Add Department</h2>
         <form action="department.php" method="POST">
-       <div class="form-group">
-        <label for="department_name">Department Name</label>
+       <div class="form-group"> 
+        <label for="department_name">Department Name</label> 
         <input type="text" id="department_name" name="department_name" placeholder="Enter department name">
     </div>
     <input type="submit" name="submit" value="Add Department">
