@@ -31,7 +31,7 @@ include('home.php');
                include("db_connect.php");
 
                // Pagination variables
-               $limit = 20; // Number of records per page
+               $limit = 10; // Number of records per page
                $page = isset($_GET['page']) ? $_GET['page'] : 1; // Current page, default is 1
 
                // Calculate the offset for the SQL query
@@ -60,7 +60,7 @@ include('home.php');
                   $hourswork = $row['hours_worked'];             
                   
                   // Determine the class based on status
-    $status_class = ($status == 'Late') ? 'late' : 'on-time';
+                  $status_class = ($status == 'Late') ? 'late' : 'on-time';
 
                   // output of HTML table row
                   echo "<tr>
@@ -73,7 +73,7 @@ include('home.php');
                      <td>".$hourswork."</td>
                      <td class='action-column'>
                         <a class='edit' href='edit_attendance.php?id=$employeeID & date=$Date'>Edit</a>
-                        <a class='delete' href='delete_att.php?id=$employeeID'>Delete</a>
+                        <a class='delete' href='delete_attendance.php?id=$employeeID & date=$Date'>Delete</a>
                      </td>
                   </tr>";
                }
