@@ -1,5 +1,6 @@
 <?php
 include('home.php');
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,6 +9,8 @@ include('home.php');
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Leave Detail</title>
    <link rel="stylesheet" href="css/leave_detail.css" />
+   <!-- SweetAlert CSS -->
+   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
    <div class="container">
@@ -41,7 +44,7 @@ include('home.php');
                $username = $row['user_name'];
                $fromdate = $row['from_date'];
                $todate = $row['to_date'];
-               $reason = $row['reason'];
+               $reason = $row['leave_type'];
                $status = $row['status'];
                
                // Display leave details
@@ -51,7 +54,7 @@ include('home.php');
                          <p><strong>Username:</strong> $username</p>
                          <p><strong>From Date:</strong> $fromdate</p>
                          <p><strong>To Date:</strong> $todate</p>
-                         <p><strong>Reason:</strong> $reason</p>
+                         <p><strong>Leave-type:</strong> $reason</p>
                          <p><strong>Status:</strong> <span class='" . ($status == "Approved" ? "status-approved" : ($status == "Waiting for Approval" ? "status-waiting" : "status-not-approved")) . "'>$status</span></p>
                          <button class='action-button' name='submit' onClick='showUpdatePopup()'>Take Action</button>
                      </div>";
@@ -63,15 +66,39 @@ include('home.php');
            // Employee ID not found in the URL
            echo "<script>alert('Employee ID not found');</script>";
        }
+
+       // Display success message if it exists
+       if (isset($_SESSION['success_message'])) {
+           echo '<script>
+               swal({
+                   title: "Success!",
+                   text: "' . $_SESSION['success_message'] . '",
+                   icon: "success",
+                   button: "OK",
+               });
+           </script>';
+           unset($_SESSION['success_message']); // Clear the message after displaying
+       }
+
+       // Display error message if it exists
+       if (isset($_SESSION['error_message'])) {
+           echo '<script>
+               swal({
+                   title: "Error!",
+                   text: "' . $_SESSION['error_message'] . '",
+                   icon: "error",
+                   button: "OK",
+               });
+           </script>';
+           unset($_SESSION['error_message']); // Clear the message after displaying
+       }
        ?>
-         <div class="image-container">
+       <div class="image-container">
            <img src="images/leave.jpg" alt="LeaveImage">
-          
        </div>
    </div>
    <!-- for update status -->
-    <!-- for closing update popup when clicked outside -->
-  <div class="update-overlay" onClick="closeUpdatePopup()"></div>
+   <div class="update-overlay" onClick="closeUpdatePopup()"></div>
    <div class="custom-container">
        <form class="custom-form" method='POST' action='update_status.php'>
            <input type='hidden' name='employeeID' value='<?php echo $employeeID ?>'>
@@ -85,17 +112,16 @@ include('home.php');
        </form>
    </div>
    
-<script> 
-function showUpdatePopup(){
-    document.querySelector('.custom-container').classList.add('showpopup');
-    document.querySelector('.update-overlay').classList.add('showOverlay');
-} 
+   <script>
+   function showUpdatePopup(){
+       document.querySelector('.custom-container').classList.add('showpopup');
+       document.querySelector('.update-overlay').classList.add('showOverlay');
+   } 
 
-function closeUpdatePopup(){
-    document.querySelector('.custom-container').classList.remove('showpopup');
-    document.querySelector('.update-overlay').classList.remove('showOverlay');
-} 
-
-</script>
+   function closeUpdatePopup(){
+       document.querySelector('.custom-container').classList.remove('showpopup');
+       document.querySelector('.update-overlay').classList.remove('showOverlay');
+   }
+   </script>
 </body>
 </html>
