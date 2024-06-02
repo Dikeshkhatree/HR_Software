@@ -39,7 +39,7 @@ table {
 }
 
 thead th, tbody td {
-   padding: 10px 25px; /* Adjusted padding */
+   padding: 9px 10px; /* Adjusted padding */
    text-align: center;
    border: 1px solid #ddd;
 }

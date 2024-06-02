@@ -5,13 +5,13 @@
 
 
    .table-container {
-   margin-bottom: 40px;
+   /* margin-bottom: 40px; */
    background-color: #fff;
    display:inline-block;
    border-radius: 8px;
    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-   margin-left: 310px;
-   margin-top: 100px;
+   width: 90%;
+
 }
 
 body {
@@ -20,12 +20,19 @@ body {
     min-height: 100vh;
 }
 
-
+.main-container{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   margin-top: 100px;
+   margin-left: 210px;
+}
 .TableInfo {
-   font-size: 30px;
+   font-size: 31px;
    font-weight: 500;
-   margin-bottom: 15px;
    text-align: center;
+   flex: 1;
 }
 
 .table-div {
@@ -39,7 +46,7 @@ table {
 }
 
 thead th, tbody td {
-   padding: 10px 25px; /* Adjusted padding */
+   padding: 10px 8px;/* Adjusted padding */
    text-align: center;
    border: 1px solid #ddd;
 }
@@ -54,7 +61,8 @@ tbody tr:nth-child(even) {
 }
 
 tbody td {
-   font-size: 16px;
+   font-size: 13px;
+   font-weight: 500;
 }
 
 td:last-child, th:last-child {
@@ -83,8 +91,6 @@ td, th {
    background-color: #0056b3; /* Change to a darker shade of blue for hover */
 }
 
-
-
 .action-column .edit {
    text-decoration: none;
    color: white;
@@ -98,3 +104,40 @@ td, th {
 .action-column .edit:hover {
    background-color: #74b977;
 }
+
+.action-button {
+   background-color: #00bbf0;
+   color: #fff;
+   border: none;
+   padding: 10px 20px;
+   border-radius: 5px;
+   cursor: pointer;
+   font-size: 16px;
+   transition: background-color 0.3s;
+   margin-right: 20px;
+}
+
+.action-button:hover {
+   background-color: #0077a3;
+}
+.table-top {
+   display: flex;
+   align-items: center; 
+   margin-top: 10px;/* Align items vertically */
+}
+.green {
+   color: green;
+   background-color: rgb(203, 255, 203);
+   border-radius: 12px;
+   font-weight: 515;
+   padding: 2px 6px;
+   
+}
+.red {
+   color: rgb(232, 35, 35);
+   background-color: rgb(255, 213, 213);
+   border-radius: 12px;
+   padding: 2px 0px;
+   font-weight: 500;
+}
+

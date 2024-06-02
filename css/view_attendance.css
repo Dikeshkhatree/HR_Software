@@ -7,12 +7,13 @@
 /* this will allow you to keep this table in right position */
    .table-container {
    margin-bottom: 40px;
+   width: 76%;
    background-color: #fff;
    display:inline-block;
    border-radius: 8px;
    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-   margin-left: 302px;
-   margin-top: 102px;
+   margin-left: 282px;
+   margin-top: 90px;
 }
 
 body {
@@ -39,7 +40,7 @@ table {
 }
 
 thead th, tbody td {
-   padding: 10px 25px; /* Adjusted padding */
+   padding: 7px 15px; /* Adjusted padding */
    text-align: center;
    border: 1px solid #ddd;
 }
@@ -54,7 +55,8 @@ tbody tr:nth-child(even) {
 }
 
 tbody td {
-   font-size: 16px;
+   font-size: 12px;
+   font-weight: 500;
 }
 
 td:last-child, th:last-child {

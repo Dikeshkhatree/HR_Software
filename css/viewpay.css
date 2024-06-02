@@ -83,3 +83,20 @@ body {
 .action-button:hover {
     background-color: #0077a3;
 }
+.pay {
+    background-color: #4CAF50; /* Green */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    margin-top: 25px;
+    margin-bottom: -15px;
+    margin-left: 40px;
+}
+
+.pay:hover {
+    background-color: #388E3C; /* Darker green for hover effect */
+}
