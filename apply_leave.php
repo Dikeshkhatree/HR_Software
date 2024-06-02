@@ -7,76 +7,34 @@ include('dashboard.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leave Request</title>
+    <link rel="stylesheet" href="css/apply_leave.css"/>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <style>
-        body {
-            background-color: #f8f9fa;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            max-width: 400px;
-            margin: 100px auto;
-        }
-
-        .content {
-            background-color: #ffffff;
-            border-radius: 20px;
-            box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-        }
-
-        h2 {
-            color: #3E54AC;
-            text-align: center;
-            margin-top: 15px;
-            margin-bottom: 26px;
-            margin-right: 37px;
-        }
-
         .input-group {
-            margin-bottom: 20px;
+            margin-bottom: 11px;
+            margin-top: 5px;
         }
-
-        .input-group input,
-        .input-group textarea {
-            width: 100%;
-            padding: 12px 20px;
-            border-radius: 10px;
-            border: 2px solid #ced4da;
-            font-size: 1rem;
-            box-sizing: border-box;
-            margin-top: 8px;
-        }
-
-        .input-group button {
-            width: 100%;
-            padding: 12px 20px;
-            border-radius: 10px;
-            font-size: 1rem;
-            background-color: #007FFF;
-            border: none;
-            cursor: pointer;
-            color: #ffffff;
-        }
-
-        .input-group button:hover {
-            background-color: #0076CE;
-        }
-
-        .text-group {
-            text-align: center;
-            margin-top: 10px;
-        }
-
-        .text-group a {
-            color: #007FFF;
-        }
-
         .form-control {
-            margin-top: 8px;
-        }
+            width: 100%;
+            height: 48px;
+            padding: 10px;
+    
+            font-size: 16px;
+            box-sizing: border-box;
+            border-radius: 8px;
+            
+        } 
+        .input-group button {
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 1rem;
+    margin-top: 13px;
+    background-color: #007FFF;
+    border: none;
+    cursor: pointer;
+    color: #ffffff;
+}
     </style>
 </head>
 <body>
@@ -84,23 +42,62 @@ include('dashboard.php');
     <div class="content">
         <h2>Leave Request</h2>
         <form action="leave.php" method="post">
-            <div class="input-group">
-                <label for="from-date" class="sr-only">From Date:</label>
-                <input type="date" id="from-date" name="from_date" class="form-control" placeholder="From Date" required>
-            </div>
-            <div class="input-group">
-                <label for="to-date" class="sr-only">To Date:</label>
-                <input type="date" id="to-date" name="to_date" class="form-control" placeholder="To Date" required>
-            </div>
-            <div class="input-group">
-                <label for="reason" class="sr-only">Reason:</label>
-                <textarea id="reason" name="reason" class="form-control" rows="2" placeholder="Reason" required></textarea>
-            </div>
-            <div class="input-group">
-                <button type="submit" name="submit" class="text">Submit</button>
-            </div>
-        </form>
+        <div class="input-group">
+            <label for="from-date" class="sr-only">From Date:</label>
+            <input type="date" id="from-date" name="from_date" class="form-control" placeholder="From Date" required>
+        </div>
+        <div class="input-group">
+            <label for="to-date" class="sr-only">To Date:</label>
+            <input type="date" id="to-date" name="to_date" class="form-control" placeholder="To Date" required>
+        </div>
+        <div class="input-group">
+            <label for="leave-type" class="sr-only">Leave Type:</label>
+            <select id="leave-type" name="leave_type" class="form-control" required>
+                <option value="" disabled selected>Select Leave Type</option>
+                <option value="sick_leave">Sick Leave</option>
+                <option value="family_medical_leave">Family and Medical Leave</option>
+                <option value="personal_leave">Personal Leave</option>
+                <option value="emergency_leave">Emergency Leave</option>
+                <option value="vacation_leave">Vacation Leave</option>
+            </select>
+        </div>
+        <div class="input-group">
+            <label for="reason" class="sr-only">Remarks:</label>
+            <textarea id="reason" name="reason" class="form-control" rows="2" placeholder="Remarks" required></textarea>
+        </div>
+        <div class="input-group">
+            <button type="submit" name="submit" class="text">Submit</button>
+        </div>
+    </form>
+
     </div>
 </div>
+<?php
+// Display success message if it exists
+if (isset($_SESSION['success_message'])) {
+    echo '<script>
+        swal({
+            title: "Success!",
+            text: "' . $_SESSION['success_message'] . '",
+            icon: "success",
+            button: "OK",
+        });
+    </script>';
+    unset($_SESSION['success_message']); // Clear the message after displaying
+}
+
+// Display error message if it exists
+if (isset($_SESSION['error_message'])) {
+    echo '<script>
+        swal({
+            title: "Error!",
+            text: "' . $_SESSION['error_message'] . '",
+            icon: "error",
+            button: "OK",
+        });
+    </script>';
+    unset($_SESSION['error_message']); // Clear the message after displaying
+}
+?>
 </body>
 </html>
