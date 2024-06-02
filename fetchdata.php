@@ -35,6 +35,12 @@ $resultlate = $conn->query($sqlLate);
 $rowlate = $resultlate->fetch_assoc(); 
 $lateEmployees = $rowlate['late_employees'];
 
+// Calculate total present employees and show in chart
+$presentEmployees = $onTimeEmployees + $lateEmployees;
+
+// Calculate absent employees and show in chart
+$absentEmployees = $totalEmployees - $presentEmployees;
+
 //for total leave applied
 $todayDate = date('Y-m-d');
 $sqlLeaveapply = "SELECT COUNT(*) AS leave_apply  
