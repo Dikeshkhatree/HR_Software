@@ -10,6 +10,24 @@ if (isset($_POST['submit'])) {
     $username = $_POST['username'];
     $password = $_POST['pass'];   
 
+    if(empty($username)){ 
+      // Set error message for empty employee ID
+      $_SESSION['error_message'] = "Please fill username";
+
+      // Redirect to the frontend page
+      header("Location: loginpage.php");
+      exit();
+  }
+
+  if(empty($password)){ 
+    // Set error message for empty employee ID
+    $_SESSION['error_message'] = "Please fill password.";
+
+    // Redirect to the frontend page
+    header("Location: loginpage.php");
+    exit();
+}
+
 // SQL query to check if the provided username and password exist in the 'admin' table
 $checkadmin = "SELECT * from admin WHERE (user_name='$username' OR email='$username') AND user_pass='$password'";
 
@@ -31,7 +49,7 @@ if ($resultadmin->num_rows > 0) {
   $_SESSION['user'] = $database_fetch ['user_name']; // this 'user_name' is database field name
 
     // If rows are returned, redirect to the home.php page
-    header("Location: home.php");
+    header("Location: chart.php");
     exit();
 } elseif ($resultemployee->num_rows > 0){
 
@@ -42,15 +60,14 @@ $database_fetch = $resultemployee->fetch_assoc();
  $_SESSION['user'] = $database_fetch ['username']; // this 'user_name' is database field name
  
  // Redirect to the dashboard.php page
- header("Location: dashboard.php");
+ header("Location: img.php");
  exit();
 } else {
-    // If no rows are returned, print "Invalid" 
-    echo "Invalid"; 
-    echo '<script>
-    alert("Invalid username or password. Please try again.");
-    window.location.href = "loginpage.php";
-  </script>';
+  // Set error message for invalid credentials
+  $_SESSION['error_message'] = "Invalid username or password. Please try again.";
+  // Redirect to the login page
+  header("Location: loginpage.php");
+  exit();
 }
 }
   // Close the database connection
