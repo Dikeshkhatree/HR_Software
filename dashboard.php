@@ -20,7 +20,7 @@ if (isset($_SESSION['user'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Boxicons CSS -->
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-    <title>Side Navigation Bar in HTML CSS</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="css/dashboard.css"/>
   </head>
   <body>
@@ -54,7 +54,7 @@ if (isset($_SESSION['user'])) {
         <ul class="menu_items">
      
           <li class="item">
-            <a href="dashboard.php" class="nav_link submenu_item">
+            <a href="img.php" class="nav_link submenu_item">
               <span class="navlink_icon">
                 <i class="bx bx-home-alt"></i>
               </span>
@@ -70,13 +70,7 @@ if (isset($_SESSION['user'])) {
               <span class="navlink">Calendar</span>
               <i class="bx bx-chevron-right arrow-left"></i>
               </a>
-            <a href="apply_leave.php" class="nav_link submenu_item">
-              <span class="navlink_icon">
-              <i class="bx bx-calendar-minus"></i>
-              </span>
-              <span class="navlink">Apply Leave</span>
-              <i class="bx bx-chevron-right arrow-left"></i>
-              </a>
+          
             <a href="emp_view_leave.php" class="nav_link submenu_item">
               <span class="navlink_icon">
               <i class="bx bx-show"></i>
@@ -90,6 +84,14 @@ if (isset($_SESSION['user'])) {
             <i class="bx bx-bar-chart"></i>
             </span>
               <span class="navlink">Overview</span>
+              <i class="bx bx-chevron-right arrow-left"></i>
+              </a> 
+
+              <a href="emp_view_document.php" class="nav_link submenu_item">
+              <span class="navlink_icon">
+              <i class="bx bx-file"></i>
+            </span>
+              <span class="navlink">Document</span>
               <i class="bx bx-chevron-right arrow-left"></i>
               </a> 
         </div>
@@ -122,9 +124,6 @@ if (isset($_SESSION['user'])) {
      </div>
      </div>
      </nav>
-    
-    <!-- JavaScript -->
-    <script src="script.js"></script>
 
   <script>
   let subMenu = document.getElementById("subMenu");
