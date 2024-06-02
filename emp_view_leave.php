@@ -24,7 +24,8 @@ include('dashboard.php');
                 <th>Username</th>
                 <th>From Date</th>
                 <th>To Date</th>
-                <th>Reason</th>
+                <th>Leave Type</th>
+                <th>Remark</th>
                 <th>Status</th>        
         </thead>
         <tbody>
@@ -49,6 +50,7 @@ include('dashboard.php');
                     $username = $row['user_name'];
                     $fromdate = $row['from_date'];
                     $todate = $row['to_date'];               
+                    $leavetype = $row['leave_type'];               
                     $reason = $row['reason'];               
                     $status = $row['status'];               
             
@@ -59,6 +61,7 @@ include('dashboard.php');
                     <td>".$username."</td>
                     <td>".$fromdate."</td>
                     <td>".$todate."</td>     
+                    <td>".$leavetype."</td>     
                     <td>".$reason."</td>
                     <td class='" . ($status == "Approved" ? "status-approved" : ($status == "Waiting for Approval" ? "status-waiting" : "status-not-approved")) . "'>
                                    <b>".$status."</b>
