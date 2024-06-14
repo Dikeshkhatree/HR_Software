@@ -84,7 +84,7 @@ if (!isValidEmail($email)) {
         $body .= "Password: $password\n";
         $body .= "Employee ID: $employeeID\n";
         $body .= "Thank you! Please login through this detail.";
-        $sender_email = "From: dikeshkhatree@gmail.com";
+        $sender_email = "From: companyhrsoftware@gmail.com";
 
         if (mail($email, $subject, $body, $sender_email)) {
             $_SESSION['form_submitted'] = true;
